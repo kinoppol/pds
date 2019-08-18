@@ -56,7 +56,6 @@ function get_include_contents($filename) {
       $num++;
     }
   }
-
   $template = key($hGET);
   $app= array_shift($hGET);
   $function= key($hGET);
@@ -75,6 +74,7 @@ function get_include_contents($filename) {
 </ul>';
 //ตรวจสอบ การระบุหน้า
 
+//exit();
 if(!isset($_COOKIE['start_page'])&&($template!="ajax"||!$_SESSION['siteConfig']['siteURL']&&template!='ajax')){
     setcookie('start_page', 'no', time() + (86400 * 30), "/"); // 86400 = 1 day
     if($template!="public"){
