@@ -2,6 +2,6 @@
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$database = 'lgs';
-$prefix = 'lgs_';
+$database = 'pds';
+$prefix = 'pds_';
 
