@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2019 at 10:33 AM
+-- Generation Time: Aug 18, 2019 at 10:47 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -124,8 +124,8 @@ CREATE TABLE `pds_site_config` (
 
 INSERT INTO `pds_site_config` (`config_name`, `detail`, `lastUpdate`) VALUES
 ('siteName', 'Legal Group System : ระบบงานกลุ่มนิติการ', '2019-08-16 15:02:53'),
-('siteURL', 'http://localhost/lgs', '2019-08-16 14:46:46'),
-('subName', 'LGS', '2019-08-16 14:47:22'),
+('siteURL', 'http://localhost/pds', '2019-08-18 08:46:58'),
+('subName', 'PDS', '2019-08-18 08:47:05'),
 ('theme', 'admin4b', '2019-07-14 13:55:58');
 
 -- --------------------------------------------------------
