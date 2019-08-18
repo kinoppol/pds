@@ -1,0 +1,45 @@
+<?php
+$menu['dev']= array(
+    'class' => "header",
+    'title' => 'นักพัฒนาระบบ',
+    'cond' => current_user('user_type')=='admin',
+    'bullet' => 'fa fa-gears',
+    'item' => array(
+        'form' => array('bullet' => 'fa fa-edit',
+            'title' => 'ฟอร์ม',
+            'url' => 'main/dev/form/general',
+            'cond' => true,
+            'item' => array(
+                'general' => array('bullet' => '',
+                    'title' => 'ฟอร์มทั่วไป',
+                    'url' => 'main/dev/form/general',
+                    'cond' => true,
+                        ),                        
+                'advance' => array('bullet' => '',
+                'title' => 'ฟอร์มขั้นสูง',
+                'url' => 'main/dev/form/advance',
+                'cond' => true,
+                    ),
+                    ),
+            ),
+            
+        'table' => array('bullet' => 'fa fa-table',
+        'title' => 'ตาราง',
+        'url' => 'main/dev/table/sample',
+        'cond' => true,
+        'item' => array(
+            'general' => array('bullet' => '',
+                'title' => 'Table',
+                'url' => 'main/dev/table/sample',
+                'cond' => true,
+                    ),                        
+            'advance' => array('bullet' => '',
+            'title' => 'Datatable',
+            'url' => 'main/dev/table/datatable',
+            'cond' => true,
+                ),
+                ),
+        ),
+        ),
+        
+    );
