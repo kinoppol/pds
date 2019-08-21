@@ -2,12 +2,23 @@
 load_fun('form');
 
 $inputDetail = array(
-    'doc_code' => array(
-        'label' => 'หมายเลขคำสั่ง',
+    'receive_code' => array(
+        'label' => 'เลขรับเรื่อง/ธุรการ',
         'type' => 'text',
         'placeholder' => 'ว่างไว้เพื่อกำหนดโดยอัตโนมัติ',
         'icon' => 'fa fa-sort-amount-desc',
-        'value' => $docData['doc_code']
+        'value' => $docData['receive_code']
+    ),
+    'level_confidential' => array(
+        'label' => 'ชั้นความลับ',
+        'type' => 'select',
+        'icon' => 'fa fa-angle-double-down',
+        'item' => array(
+            'top_secret' => 'ลับที่สุด',
+            'secret' => 'ลับมาก',
+            'confidential' => 'ลับ'
+        ),
+        'def' => $docData['level_confidential'] ? $docData['level_confidential'] : date('Y')
     ),
     'doc_title' => array(
         'label' => 'เรื่อง',
@@ -63,16 +74,7 @@ $inputDetail = array(
         'icon' => 'fa fa-calendar',
         'value' => $docData['date_sign'] ? $docData['date_sign'] : date('H:i')
     ),
-    'doc_year' => array(
-        'label' => 'ปี',
-        'type' => 'select',
-        'icon' => 'fa fa-angle-double-down',
-        'item' => array(
-            date('Y') => date('Y') + 543,
-            date('Y') - 1 => date('Y') + 542
-        ),
-        'def' => $docData['doc_year'] ? $docData['doc_year'] : date('Y')
-    ),
+
     'submit' => array(
         'label' => '&nbsp;',
         'type' => 'submit',
