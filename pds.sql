@@ -142,7 +142,7 @@ CREATE TABLE `pds_user_data` (
   `password` varchar(32) NOT NULL,
   `school_id` varchar(100) DEFAULT NULL,
   `active` enum('Y','N') NOT NULL DEFAULT 'Y',
-  `register_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `register_time` datetime NOT NULL,
   `last_login` datetime DEFAULT NULL,
   `user_type` enum('admin','staff','advisor','user') NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
