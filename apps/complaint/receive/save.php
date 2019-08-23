@@ -8,12 +8,15 @@ $data=array(
     'source_id'=>sQ($_POST['source_id']),
     'owner_id'=>sQ(current_user('id')),
 );
-$result=sInsert($systemDb,"complaint",$data);
+$result=sInsertTb($systemDb,"complaint",$data);
 if($result){
     $data['icon']='fa fa-save';
     $data['color']='alert-success';
     $data['text']='&nbsp;บันทึกข้อมูลเรียบร้อยแล้ว';
 print genAlert($data);
+print '<script>
+$("#receiveForm").trigger("reset");
+</script>';
 }else{
     
     $data['icon']='fa fa-save';

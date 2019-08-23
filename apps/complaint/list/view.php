@@ -91,7 +91,7 @@ $data=array("head"=>array(
     $inputForm = genInput($inputDetail, 4, 12);
     $saveURL=site_url('ajax/complaint/receive/save');
     $form_content=genForm(array(
-    'id' => 'resiveForm',
+    'id' => 'receiveForm',
     'action' => $saveURL,
     'ajaxSubmit' => $inputDetail,
     'response' => 'ajaxResponse',
