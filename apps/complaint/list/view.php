@@ -23,6 +23,8 @@ load_fun('form');
 load_fun('table');
 load_fun('datatable');
 
+$complaint_data=sSelectTb($systemDb,"complaint",'receive_code,complaint_code,subject,source_id,owner_id','owner_id='.current_user('id'));
+
 $data=array("head"=>array(
     'เลขรับเรื่อง',
     'หมายเลขเรื่องร้องเรียน',
@@ -30,7 +32,7 @@ $data=array("head"=>array(
     'แหล่งที่มา',
     'เจ้าของสำนวน'
     ),
-    'id'=>'school',
+    'id'=>'complaint',
     'item'=>$complaint_data,
     'pagelength'=>10,
     'order'=>'[[ 0, "asc" ]]'
