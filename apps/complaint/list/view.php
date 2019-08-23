@@ -21,55 +21,7 @@
 <?php
 load_fun('form');
 
-load_fun('table');
-load_fun('datatable');
-
-$complaint_data=sSelectTb($systemDb,"complaint",'id,receive_code,complaint_code,subject,source_id,owner_id','owner_id='.current_user('id'));
-//print_r($complaint_data);
-
-$i=-1;
-foreach($complaint_data as $row){
-    $i++;
-    $data_edit=array(
-        'id'=>'edit_complaint',
-        'src'=>site_url('ajax/complaint/edit/form/id/'.$row['id']),
-        'onlyClickClose'=>true,    
-    );
-    $data_transfer=array(
-        'id'=>'transfer_complaint',
-        'src'=>site_url('ajax/complaint/transfer/form/id/'.$row['id']),
-        'onlyClickClose'=>false,    
-    );
-    $table_data[]=array(
-        'receive_code'=>$row['receive_code'],
-        'complaint_code'=>$row['complaint_code'],
-        'subject'=>$row['subject'],
-        'source_id'=>$row['source_id'],
-        'owner_id'=>$row['owner_id'],
-        'edit_button'=>'
-        <a '.gen_modal_link($data_edit).' class="btn btn-primary" ><i class="fa fa-edit"></i> แก้ไข</a>
-        ',
-        'transfer_button'=>'
-        <a '.gen_modal_link($data_transfer).' class="btn btn-warning" ><i class="fa fa-sign-out"></i> โอน</a>
-        ',
-    );
-    
-}
-$data=array("head"=>array(
-    'เลขรับเรื่อง',
-    'หมายเลขเรื่องร้องเรียน',
-    'ชื่อเรื่องร้องเรียน',
-    'แหล่งที่มา',
-    'เจ้าของสำนวน',
-    'แก้ไข',
-    'โอน'
-    ),
-    'id'=>'complaint',
-    'item'=>$table_data,
-    'pagelength'=>10,
-    'order'=>'[[ 0, "asc" ]]'
-    );
-    print datatable($data);
+print "<p id='complaint_table'>โปรดรอสักครู่..</p>";
 
 //ฟอร์มรับเรื่อง
     $inputDetail = array(
@@ -121,6 +73,7 @@ $data=array("head"=>array(
     );
     $onSubmit .= '
     $("#modal_resive").modal("hide");
+    load_table_complaint();
     ';
     $inputForm = genInput($inputDetail, 4, 12);
     $saveURL=site_url('ajax/complaint/receive/save');
@@ -160,3 +113,13 @@ $data=array("head"=>array(
 </div>
 </div>
 </div>
+<script>
+$(function(){
+    load_table_complaint();
+});
+    function load_table_complaint(){
+        $('#complaint_table').load('<?php
+            print site_url('ajax/complaint/list/table');
+            ?>');
+    }
+</script>

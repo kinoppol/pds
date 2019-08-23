@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2019 at 02:27 PM
+-- Generation Time: Aug 23, 2019 at 06:22 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -44,8 +44,12 @@ CREATE TABLE `complaint` (
 
 INSERT INTO `complaint` (`id`, `receive_code`, `level_confidential`, `complaint_code`, `subject`, `source_id`, `owner_id`) VALUES
 (1, '1', 'ลับมาก', '1', 'sadsfdg', 1, 2),
-(2, '2', 'ลับที่สุด', '2', 'lKJHKGJFHG', 1, 2),
-(3, '3', 'ลับมาก', '3', 'KLJKHGJFHGD', 1, 2);
+(2, '2', 'ลับที่สุด', '2', 'lKJHKGJFHG', 1, 1),
+(3, '3', 'ลับมาก', '3', 'KLJKHGJFHGD', 1, 1),
+(4, '', 'ลับ', '', '', 1, 2),
+(5, '', 'ลับ', '', '', 1, 2),
+(6, '', 'ลับ', '', '', 1, 1),
+(7, '', 'ลับ', '', '', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -135,7 +139,8 @@ CREATE TABLE `personal` (
 --
 
 INSERT INTO `personal` (`id`, `citizen_id`, `fname`, `lname`, `position`, `email`) VALUES
-(1, '0000000000001', 'ผู้ดูแลระบบ', '-', 'ผู้จัดการระบบ', 'admin.pds@vec.go.th');
+(1, '0000000000001', 'ผู้ดูแลระบบ', '-', 'ผู้จัดการระบบ', 'admin.pds@vec.go.th'),
+(2, '0000000000002', 'เจ้าหน้าที่ธุรการ', '-', 'เจ้าหน้าที่', 'staff.pds@vec.go.th');
 
 -- --------------------------------------------------------
 
@@ -226,7 +231,7 @@ CREATE TABLE `userdata` (
 
 INSERT INTO `userdata` (`id`, `username`, `password`, `personal_id`, `active`, `user_type`, `last_login`) VALUES
 (1, 'admin', '25d55ad283aa400af464c76d713c07ad', 1, 'Y', 'admin', '2019-08-23 17:39:55'),
-(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-23 18:56:08');
+(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-23 23:20:30');
 
 -- --------------------------------------------------------
 
@@ -325,7 +330,7 @@ ALTER TABLE `witness`
 -- AUTO_INCREMENT for table `complaint`
 --
 ALTER TABLE `complaint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสเรื่องร้องเรียน', AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสเรื่องร้องเรียน', AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `complaint_timeline`
@@ -355,7 +360,7 @@ ALTER TABLE `investigate_timeline`
 -- AUTO_INCREMENT for table `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสบุคลากร', AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสบุคลากร', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `source`

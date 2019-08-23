@@ -41,7 +41,7 @@ $onSubmit .= '
 $("#transfer_complaint").modal("hide");
 ';
 $inputForm = genInput($inputDetail, 4, 12);
-$saveURL=site_url('main/complaint/transfer/save');
+$saveURL=site_url('ajax/complaint/transfer/save');
 $form_content=genForm(array(
 'id' => 'transferForm',
 'action' => $saveURL,
