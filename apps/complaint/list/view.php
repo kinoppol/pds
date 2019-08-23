@@ -39,7 +39,7 @@ $data=array("head"=>array(
 
 //ฟอร์มรับเรื่อง
     $inputDetail = array(
-        'resive_code' => array(
+        'receive_code' => array(
             'label' => 'เลขรับเรื่อง',
             'type' => 'text',
             'placeholder' => 'ว่างไว้เพื่อกำหนดโดยอัตโนมัติ',
@@ -89,7 +89,7 @@ $data=array("head"=>array(
     $("#modal_resive").modal("hide");
     ';
     $inputForm = genInput($inputDetail, 4, 12);
-    $saveURL=site_url('ajax/complaint/resive/save');
+    $saveURL=site_url('ajax/complaint/receive/save');
     $form_content=genForm(array(
     'id' => 'resiveForm',
     'action' => $saveURL,
