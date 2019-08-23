@@ -33,7 +33,7 @@ $(document).ready(function() {
 					"order":'.$data['order'].',
                     "oLanguage": {
                     "sLengthMenu": "แสดง _MENU_ แถว ต่อหน้า",
-                    "sZeroRecords": "ไม่เจอข้อมูลที่ค้นหา",
+                    "sZeroRecords": "ไม่พบข้อมูลที่ค้นหา",
                     "sInfo": "แสดงแถวที่ _START_ ถึง _END_ ของ _TOTAL_ แถว",
                     "sInfoEmpty": "แสดงแถวที่ 0 ถึง 0 ของ 0 แถว",
                     "sInfoFiltered": "(จากทั้งหมด _MAX_ แถว)",
@@ -98,7 +98,7 @@ $(document).ready(function() {
                     "oLanguage": {
                     "sProcessing": "<i class=\"fa fa-spinner fa-spin\"></i> กำลังประมวลผล..<br>",
                     "sLengthMenu": "แสดง _MENU_ แถว ต่อหน้า",
-                    "sZeroRecords": "ไม่เจอข้อมูลที่ค้นหา",
+                    "sZeroRecords": "ไม่พบข้อมูลที่ค้นหา",
                     "sInfo": "แสดงแถวที่ _START_ ถึง _END_ ของ _TOTAL_ แถว",
                     "sInfoEmpty": "แสดงแถวที่ 0 ถึง 0 ของ 0 แถว",
                     "sInfoFiltered": "(จากทั้งหมด _MAX_ แถว)",

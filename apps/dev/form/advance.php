@@ -4,7 +4,6 @@ load_fun('form');
 $inputDetail = array(
     'select_once' => array(
         'label' => 'หมายเลขคำสั่ง',
-        'type' => 'text',
         'type'=>'select',
         'chosen'=>true,
         'class'=>'chosen-select form-control',

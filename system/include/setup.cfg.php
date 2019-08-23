@@ -3,5 +3,6 @@ $host = 'localhost';
 $user = 'root';
 $password = '';
 $database = 'pds';
-$prefix = 'pds_';
+$prefix = '';
+//$prefix = 'pds_';
 

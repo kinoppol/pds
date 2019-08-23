@@ -522,6 +522,44 @@ $("#'.$data['id'].'").on("hidden.bs.modal", function () {
 								</script>';
 								return $ret;
 }
+function gen_modal_botton($data=array()){
+  if(!isset($data['color']))$data['color']='btn-default';
+  $onlyClickClose='';
+  if($data['onlyClickClose']==true){
+      $onlyClickClose=' data-backdrop="static" data-keyboard="false"';
+  }
+  $ret='
+  <button type="button" class="btn '.$data['color'].'" onClick="'.$data['onClick'].'" data-toggle="modal" data-target="#'.$data['id'].'"'.$onlyClickClose.'>
+          '.$data['label'].'
+  </button>';
+
+  return $ret;
+}
+
+function gen_modal_box($data=array()){
+  $ret='
+  <div class="modal fade" id="'.$data['id'].'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog'.$data['size'].'">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title" id="myModalLabel">'.$data['title'].'</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="modal-body">
+    
+      '.$data['content'].'
+      
+    </div>
+    <div class="modal-footer">
+      <!--<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>-->
+    </div>
+  </div>
+</div>
+</div>
+</div>
+';
+return $ret;
+}
 
 function gen_modalLink($data){
 	if($data['onlyClickClose'])$onlyClickClose='data-keyboard="false" data-backdrop="static"';

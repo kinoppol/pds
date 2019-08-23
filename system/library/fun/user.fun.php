@@ -1,7 +1,7 @@
 <?php
   function signInUser($userID,$remember=false,$noRedirect=false){
     global $systemDb;
-          $data=sSelectTb($systemDb,'user_data','*','id="'.$userID.'" AND active="Y" limit 1');
+          $data=sSelectTb($systemDb,'userdata','*','id="'.$userID.'" AND active="Y" limit 1');
           $userdata=$data[0];
   
   //$groups=$userdata['groups'];
@@ -113,7 +113,7 @@
     //print_r($logon_data);
     setcookie('user',serialize($logon_data), time() + $logon_data['time_logon'], "/");
     //print_r($_COOKIE);
-    return sUpdateTb($systemDb,"user_data",array("last_login"=>"NOW()"),"id=".$logon_data['id'],true);
+    return sUpdateTb($systemDb,"userdata",array("last_login"=>"NOW()"),"id=".$logon_data['id'],true);
   }
   
   function current_user($key){
@@ -202,7 +202,7 @@
 
   function check_user_pass($username,$password){
     global $systemDb;
-          $data=sSelectTb($systemDb,'user_data','id','email='.sQ($username).' AND password='.sQ(md5($password)).' AND active="Y" limit 1');
+          $data=sSelectTb($systemDb,'userdata','id','username='.sQ($username).' AND password='.sQ(md5($password)).' AND active="Y" limit 1');
           $userCount=count($data);
           if($userCount==1){
             return $data[0]['id'];
