@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2019 at 01:54 PM
+-- Generation Time: Aug 23, 2019 at 02:27 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -30,13 +30,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `complaint` (
   `id` int(11) NOT NULL COMMENT 'รหัสเรื่องร้องเรียน',
-  `resive_code` varchar(50) NOT NULL DEFAULT '0' COMMENT 'เลขรับเรื่อง/ธุรการ',
+  `receive_code` varchar(50) NOT NULL DEFAULT '0' COMMENT 'เลขรับเรื่อง/ธุรการ',
   `level_confidential` varchar(50) NOT NULL DEFAULT '0' COMMENT 'ชั้นความรับ',
   `complaint_code` varchar(50) NOT NULL DEFAULT '0' COMMENT 'หมายเลขเรื่องร้องเรียน',
   `subject` varchar(200) NOT NULL COMMENT 'ชื่อเรื่องร้องเรียน',
   `source_id` int(11) NOT NULL COMMENT 'รหัสแหล่งที่มาของเรื่องร้องเรียน',
   `owner_id` int(11) UNSIGNED NOT NULL COMMENT 'รหัสเจ้าของสำนวน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `complaint`
+--
+
+INSERT INTO `complaint` (`id`, `receive_code`, `level_confidential`, `complaint_code`, `subject`, `source_id`, `owner_id`) VALUES
+(1, '1', 'ลับมาก', '1', 'sadsfdg', 1, 2),
+(2, '2', 'ลับที่สุด', '2', 'lKJHKGJFHG', 1, 2),
+(3, '3', 'ลับมาก', '3', 'KLJKHGJFHGD', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -217,7 +226,7 @@ CREATE TABLE `userdata` (
 
 INSERT INTO `userdata` (`id`, `username`, `password`, `personal_id`, `active`, `user_type`, `last_login`) VALUES
 (1, 'admin', '25d55ad283aa400af464c76d713c07ad', 1, 'Y', 'admin', '2019-08-23 17:39:55'),
-(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-23 17:40:23');
+(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-23 18:56:08');
 
 -- --------------------------------------------------------
 
@@ -316,7 +325,7 @@ ALTER TABLE `witness`
 -- AUTO_INCREMENT for table `complaint`
 --
 ALTER TABLE `complaint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสเรื่องร้องเรียน';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสเรื่องร้องเรียน', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `complaint_timeline`
