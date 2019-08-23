@@ -1,5 +1,6 @@
 <?php
 load_fun('system_alert');
+if(isset($_POST['subject'])&&trim($_POST['subject'])!=''){
 $data=array(
     'receive_code'=>sQ($_POST['receive_code']),
     'level_confidential'=>sQ($_POST['level_confidential']),
@@ -9,6 +10,10 @@ $data=array(
     'owner_id'=>sQ(current_user('id')),
 );
 $result=sInsertTb($systemDb,"complaint",$data);
+}else{
+    $err_txt=' โปรดระบุชื่อเรื่อง';
+}
+
 if($result){
     $data['icon']='fa fa-save';
     $data['color']='alert-success';
@@ -21,6 +26,6 @@ $("#receiveForm").trigger("reset");
     
     $data['icon']='fa fa-save';
     $data['color']='alert-danger';
-    $data['text']='&nbsp;ไม่สามารถบันทึกข้อมูลได้';
+    $data['text']='&nbsp;ไม่สามารถบันทึกข้อมูลได้'.$err_txt;
 print genAlert($data);
 }

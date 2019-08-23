@@ -493,8 +493,9 @@ function gen_modal($data){
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        
         <h4 class="modal-title" id="myModalLabel">'.$data['title'].'</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
         ...
@@ -561,7 +562,7 @@ function gen_modal_box($data=array()){
 return $ret;
 }
 
-function gen_modalLink($data){
+function gen_modal_link($data){
 	if($data['onlyClickClose'])$onlyClickClose='data-keyboard="false" data-backdrop="static"';
 	$ret='';
 	$ret='href="'.site_url($data['src']).'" data-target="#'.$data['id'].'" data-toggle="modal" data-remote="false" '.$onlyClickClose;
