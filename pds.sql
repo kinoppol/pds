@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2019 at 10:47 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Aug 23, 2019 at 01:53 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -109,28 +109,6 @@ CREATE TABLE `investigate_timeline` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pds_site_config`
---
-
-CREATE TABLE `pds_site_config` (
-  `config_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `detail` text NOT NULL,
-  `lastUpdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `pds_site_config`
---
-
-INSERT INTO `pds_site_config` (`config_name`, `detail`, `lastUpdate`) VALUES
-('siteName', 'Legal Group System : ระบบงานกลุ่มนิติการ', '2019-08-16 15:02:53'),
-('siteURL', 'http://localhost/pds', '2019-08-18 08:46:58'),
-('subName', 'PDS', '2019-08-18 08:47:05'),
-('theme', 'admin4b', '2019-07-14 13:55:58');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `pds_user_data`
 --
 
@@ -154,7 +132,7 @@ CREATE TABLE `pds_user_data` (
 INSERT INTO `pds_user_data` (`id`, `firstname`, `lastname`, `email`, `password`, `school_id`, `active`, `register_time`, `last_login`, `user_type`) VALUES
 (1, 'นพพล', 'อินศร', 'i.noppol@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'Y', '2019-07-18 01:52:34', '2019-08-16 23:09:10', 'admin'),
 (3, 'นพพล', 'อินศร', 'noppol.ins@bncc.ac.th', 'e10adc3949ba59abbe56e057f20f883e', '1310096201', 'Y', '2019-07-18 07:42:49', '2019-07-18 10:19:54', 'user'),
-(4, 'สมชาย', 'สบายดี', 's@m.c', '25d55ad283aa400af464c76d713c07ad', '1396106401', 'Y', '2019-07-18 11:02:00', '2019-08-16 23:07:22', 'user'),
+(4, 'สมชาย', 'สบายดี', 's@m.c', '25d55ad283aa400af464c76d713c07ad', '1396106401', 'Y', '2019-07-18 11:02:00', '2019-08-23 15:23:41', 'user'),
 (5, 'สมชาย', 'สบายดี', 'sc@m.c', 'e10adc3949ba59abbe56e057f20f883e', '1320026101', 'Y', '2019-07-18 11:47:53', '2019-07-18 11:56:10', 'user');
 
 -- --------------------------------------------------------
@@ -171,6 +149,35 @@ CREATE TABLE `personal` (
   `position` varchar(200) DEFAULT NULL COMMENT 'ตำแหน่ง',
   `email` varchar(50) DEFAULT NULL COMMENT 'อีเมล'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `personal`
+--
+
+INSERT INTO `personal` (`id`, `citizen_id`, `fname`, `lname`, `position`, `email`) VALUES
+(1, '0000000000001', 'ผู้ดูแลระบบ', '-', 'ผู้จัดการระบบ', 'admin.pds@vec.go.th');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `site_config`
+--
+
+CREATE TABLE `site_config` (
+  `config_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `detail` text NOT NULL,
+  `lastUpdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `site_config`
+--
+
+INSERT INTO `site_config` (`config_name`, `detail`, `lastUpdate`) VALUES
+('siteName', 'Personnel Discipline Subdivision : กลุ่มงานวินัย', '2019-08-23 09:32:50'),
+('siteURL', 'http://localhost/pds', '2019-08-18 08:46:58'),
+('subName', 'PDS', '2019-08-18 08:47:05'),
+('theme', 'admin4b', '2019-07-14 13:55:58');
 
 -- --------------------------------------------------------
 
@@ -227,8 +234,19 @@ CREATE TABLE `userdata` (
   `id` int(11) NOT NULL COMMENT 'รหัสผู้ใช้',
   `username` varchar(50) DEFAULT NULL COMMENT 'ชื่อผู้ใช้',
   `password` varchar(32) DEFAULT NULL COMMENT 'รหัสผ่าน',
-  `personal_id` int(11) DEFAULT NULL COMMENT 'รหัสบุคลากร'
+  `personal_id` int(11) DEFAULT NULL COMMENT 'รหัสบุคลากร',
+  `active` enum('Y','N','B') NOT NULL DEFAULT 'Y' COMMENT 'เปิดใช้งาน',
+  `user_type` enum('admin','advisor','staff','user') NOT NULL DEFAULT 'user' COMMENT 'ประเภทผู้ใช้',
+  `last_login` datetime DEFAULT NULL COMMENT 'ลงชื่อเข้าใช้ครั้งสุดท้าย'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `userdata`
+--
+
+INSERT INTO `userdata` (`id`, `username`, `password`, `personal_id`, `active`, `user_type`, `last_login`) VALUES
+(1, 'admin', '25d55ad283aa400af464c76d713c07ad', 1, 'Y', 'admin', '2019-08-23 17:39:55'),
+(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-23 17:40:23');
 
 -- --------------------------------------------------------
 
@@ -280,13 +298,6 @@ ALTER TABLE `investigate_timeline`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pds_site_config`
---
-ALTER TABLE `pds_site_config`
-  ADD PRIMARY KEY (`config_name`),
-  ADD UNIQUE KEY `config_name` (`config_name`);
-
---
 -- Indexes for table `pds_user_data`
 --
 ALTER TABLE `pds_user_data`
@@ -299,6 +310,13 @@ ALTER TABLE `pds_user_data`
 ALTER TABLE `personal`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `citizen_id` (`citizen_id`);
+
+--
+-- Indexes for table `site_config`
+--
+ALTER TABLE `site_config`
+  ADD PRIMARY KEY (`config_name`),
+  ADD UNIQUE KEY `config_name` (`config_name`);
 
 --
 -- Indexes for table `source`
@@ -370,7 +388,7 @@ ALTER TABLE `pds_user_data`
 -- AUTO_INCREMENT for table `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสบุคลากร';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสบุคลากร', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `source`
@@ -388,7 +406,7 @@ ALTER TABLE `step_data`
 -- AUTO_INCREMENT for table `userdata`
 --
 ALTER TABLE `userdata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้ใช้';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้ใช้', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `witness`
