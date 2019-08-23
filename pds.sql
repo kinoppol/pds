@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2019 at 01:53 PM
+-- Generation Time: Aug 23, 2019 at 01:54 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -105,35 +105,6 @@ CREATE TABLE `investigate_timeline` (
   `date_step` date DEFAULT NULL COMMENT 'วันที่เข้าสู่ขั้นตอน',
   `time_limit` int(11) DEFAULT NULL COMMENT 'กำหนดระยะเวลา (วัน)'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ขั้นตอนการสืบสวน' ROW_FORMAT=COMPACT;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pds_user_data`
---
-
-CREATE TABLE `pds_user_data` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(100) NOT NULL,
-  `lastname` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(32) NOT NULL,
-  `school_id` varchar(100) DEFAULT NULL,
-  `active` enum('Y','N') NOT NULL DEFAULT 'Y',
-  `register_time` datetime NOT NULL,
-  `last_login` datetime DEFAULT NULL,
-  `user_type` enum('admin','staff','advisor','user') NOT NULL DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `pds_user_data`
---
-
-INSERT INTO `pds_user_data` (`id`, `firstname`, `lastname`, `email`, `password`, `school_id`, `active`, `register_time`, `last_login`, `user_type`) VALUES
-(1, 'นพพล', 'อินศร', 'i.noppol@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'Y', '2019-07-18 01:52:34', '2019-08-16 23:09:10', 'admin'),
-(3, 'นพพล', 'อินศร', 'noppol.ins@bncc.ac.th', 'e10adc3949ba59abbe56e057f20f883e', '1310096201', 'Y', '2019-07-18 07:42:49', '2019-07-18 10:19:54', 'user'),
-(4, 'สมชาย', 'สบายดี', 's@m.c', '25d55ad283aa400af464c76d713c07ad', '1396106401', 'Y', '2019-07-18 11:02:00', '2019-08-23 15:23:41', 'user'),
-(5, 'สมชาย', 'สบายดี', 'sc@m.c', 'e10adc3949ba59abbe56e057f20f883e', '1320026101', 'Y', '2019-07-18 11:47:53', '2019-07-18 11:56:10', 'user');
 
 -- --------------------------------------------------------
 
@@ -298,13 +269,6 @@ ALTER TABLE `investigate_timeline`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pds_user_data`
---
-ALTER TABLE `pds_user_data`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
 -- Indexes for table `personal`
 --
 ALTER TABLE `personal`
@@ -377,12 +341,6 @@ ALTER TABLE `investigate`
 --
 ALTER TABLE `investigate_timeline`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสความคืบหน้า';
-
---
--- AUTO_INCREMENT for table `pds_user_data`
---
-ALTER TABLE `pds_user_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `personal`
