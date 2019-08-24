@@ -38,7 +38,7 @@ $inputDetail = array(
     'complainant' => array(
         'label' => 'ผู้ถูกร้องเรียน',
         'type' => 'textarea',
-        'icon' => 'fa fa-edit',
+        'icon' => 'fa fa-user',
         'value' => $complaint_data['complainant']
     ),
     'source_id' => array(
