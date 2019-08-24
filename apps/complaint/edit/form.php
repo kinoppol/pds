@@ -1,5 +1,7 @@
 <?php
 load_fun('form');
+$complaint_data=sSelectTb($systemDb,'complaint','*','id='.$hGET['id']);
+$complaint_data=$complaint_data[0];
 
 $inputDetail = array(
     'receive_code' => array(
@@ -7,14 +9,14 @@ $inputDetail = array(
         'type' => 'text',
         'placeholder' => '',
         'icon' => 'fa fa-sort-amount-desc',
-        'value' => $docData['doc_code']
+        'value' => $complaint_data['receive_code']
     ),
     'complaint_code' => array(
         'label' => 'เลขเรื่องร้องเรียน',
         'type' => 'text',
         'placeholder' => '',
         'icon' => 'fa fa-edit',
-        'value' => $docData['note']
+        'value' => $complaint_data['complaint_code']
     ),
     'level_confidential' => array(
         'label' => 'ชั้นความรับ',
@@ -24,13 +26,14 @@ $inputDetail = array(
             'ลับมาก'=>'ลับมาก',
             'ลับที่สุด'=>'ลับที่สุด',
         ),
-        'icon' => 'fa fa-user-secret'
+        'icon' => 'fa fa-user-secret',
+        'def'=>$complaint_data['level_confidential']
     ),
     'subject' => array(
         'label' => 'ชื่อเรื่องร้องเรียน',
         'type' => 'textarea',
         'icon' => 'fa fa-edit',
-        'value' => $docData['note']
+        'value' => $complaint_data['subject']
     ),
     'source_id' => array(
         'label' => 'ประเภทที่มา',
@@ -40,7 +43,8 @@ $inputDetail = array(
             2=>'หน่วยงานภายนอก',
             3=>'เว็บไซต์',
         ),
-        'icon' => 'fa fa-list'
+        'icon' => 'fa fa-list',
+        'def'=>$complaint_data['source_id']
     ),
     'submit' => array(
         'label' => '&nbsp;',
