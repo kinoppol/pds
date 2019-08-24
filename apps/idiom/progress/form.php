@@ -7,8 +7,8 @@
     
     $data=array(
         'id'=>'modal_resive',
-        'label'=>'<i class="fa fa-plus"></i> แต่งตั้งกรรมการสืบ',
-        'color'=>'btn-primary btn-lg btn-block',
+        'label'=>'<i class="fa fa-check"></i> แต่งตั้งกรรมการสืบ',
+        'color'=>'btn-success btn-lg btn-block',
         'onlyClickClose'=>true,
         //'onClick'=>'gen_index()',
     );
@@ -22,7 +22,7 @@
     
     $data=array(
         'id'=>'modal_resive',
-        'label'=>'<i class="fa fa-plus"></i> แจ้งกรรมการ',
+        'label'=>'<i class="fa fa-coffee"></i> แจ้งกรรมการ',
         'color'=>'btn-primary btn-lg btn-block',
         'onlyClickClose'=>true,
         //'onClick'=>'gen_index()',
