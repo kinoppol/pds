@@ -4,7 +4,9 @@
 ?>
 <div class="card"><div class="card-body">
 <?php
-    
+    $step=array(
+        
+    );
     $data=array(
         'id'=>'modal_resive',
         'label'=>'<i class="fa fa-check"></i> แต่งตั้งกรรมการสืบ',

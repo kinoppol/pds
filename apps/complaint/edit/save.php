@@ -7,6 +7,7 @@ $data=array(
     'level_confidential'=>sQ($_POST['level_confidential']),
     'complaint_code'=>sQ($_POST['complaint_code']),
     'subject'=>sQ($_POST['subject']),
+    'complainant'=>sQ($_POST['complainant']),
     'source_id'=>sQ($_POST['source_id']),
     'owner_id'=>sQ(current_user('id')),
 );

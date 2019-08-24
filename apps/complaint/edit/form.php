@@ -35,6 +35,12 @@ $inputDetail = array(
         'icon' => 'fa fa-edit',
         'value' => $complaint_data['subject']
     ),
+    'complainant' => array(
+        'label' => 'ผู้ถูกร้องเรียน',
+        'type' => 'textarea',
+        'icon' => 'fa fa-edit',
+        'value' => $complaint_data['complainant']
+    ),
     'source_id' => array(
         'label' => 'ประเภทที่มา',
         'type' => 'select',

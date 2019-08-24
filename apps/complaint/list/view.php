@@ -30,14 +30,14 @@ print "<p id='complaint_table'>โปรดรอสักครู่..</p>";
             'type' => 'text',
             'placeholder' => '',
             'icon' => 'fa fa-sort-amount-desc',
-            'value' => $docData['doc_code']
+            'value' => ''
         ),
         'complaint_code' => array(
             'label' => 'เลขเรื่องร้องเรียน',
             'type' => 'text',
             'placeholder' => '',
             'icon' => 'fa fa-edit',
-            'value' => $docData['note']
+            'value' => ''
         ),
         'level_confidential' => array(
             'label' => 'ชั้นความรับ',
@@ -53,7 +53,13 @@ print "<p id='complaint_table'>โปรดรอสักครู่..</p>";
             'label' => 'ชื่อเรื่องร้องเรียน',
             'type' => 'textarea',
             'icon' => 'fa fa-edit',
-            'value' => $docData['note']
+            'value' => ''
+        ),
+        'complainant' => array(
+            'label' => 'ผู้ถูกร้องเรียน',
+            'type' => 'textarea',
+            'icon' => 'fa fa-user',
+            'value' => ''
         ),
         'source_id' => array(
             'label' => 'ประเภทที่มา',
