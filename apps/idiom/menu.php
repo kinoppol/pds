@@ -3,7 +3,7 @@ $menu['idiom']= array(
     'class' => "header",
     'title' => 'ดำเนินการ',
     //'url'=>'main/form/receive',
-    'cond' => current_user('user_type')=='lawyer',
+    'cond' => trim(current_user('user_type'))=='lawyer',
     'bullet' => 'fa fa-book',
     'item' => array(
         'list' => array('bullet' => '',

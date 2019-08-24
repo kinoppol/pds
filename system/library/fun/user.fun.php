@@ -35,7 +35,13 @@
   }
   
 	$logon_data=$userdata;
-	$logon_data["time_logon"]=$time_logon;
+  $logon_data["time_logon"]=$time_logon;
+  $personal_data=sSelectTb($systemDb,'personal','*','id='.$logon_data['personal_id']);
+  $personal_data=$personal_data[0];
+
+  
+  $logon_data["fname"]=$personal_data['fname'];
+  $logon_data["lname"]=$personal_data['lname'];
 	//$logon_data["picture"]=$picture;
 	//$logon_data["picture_file"]=$picture_file;
 	//$logon_data["accession"]=$accession;

@@ -69,7 +69,7 @@ $theme_URL=site_url("system/template/admin4b",true);
                 <svg class="avatar">
                     <use href="<?php print $theme_URL?>/src/docs/assets/img/faces.svg#john" />
                 </svg>
-                <div class="username"><span><?php print current_user('firstname').' '.current_user('lastname');?></span>
+                <div class="username"><span><?php print current_user('fname').' '.current_user('lname');?></span>
                  <small><?php
                     $school_data=sSelectTb($systemDb,'school_data','*','school_id='.sQ(current_user('school_id')));
                     $school_data=$school_data[0];
