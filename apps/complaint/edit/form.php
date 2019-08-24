@@ -56,9 +56,9 @@ $onSubmit .= '
 $("#modal_resive").modal("hide");
 ';
 $inputForm = genInput($inputDetail, 4, 12);
-$saveURL=site_url('ajax/complaint/receive/save');
-print genForm(array(
-'id' => 'receiveForm',
+$saveURL=site_url('ajax/complaint/edit/save/id/'.$hGET['id']);
+print gen_form(array(
+'id' => 'editForm',
 'action' => $saveURL,
 'ajaxSubmit' => $inputDetail,
 'response' => 'ajaxResponse',

@@ -343,7 +343,7 @@ function showUpdate(txt){
         	function gen_form($data){
         		global $systemFoot;
         		$attr='';
-        		if(count($data['attr'])){
+        		if(is_array($data['attr'])&&count($data['attr'])){
         			
         			if(is_array($data['attr'])){
         				foreach($data['attr'] as $k=>$v){

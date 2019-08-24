@@ -28,14 +28,14 @@ print "<p id='complaint_table'>โปรดรอสักครู่..</p>";
         'receive_code' => array(
             'label' => 'เลขรับเรื่อง',
             'type' => 'text',
-            'placeholder' => 'ว่างไว้เพื่อกำหนดโดยอัตโนมัติ',
+            'placeholder' => '',
             'icon' => 'fa fa-sort-amount-desc',
             'value' => $docData['doc_code']
         ),
         'complaint_code' => array(
             'label' => 'เลขเรื่องร้องเรียน',
             'type' => 'text',
-            'placeholder' => 'ว่างไว้เพื่อกำหนดโดยอัตโนมัติ',
+            'placeholder' => '',
             'icon' => 'fa fa-edit',
             'value' => $docData['note']
         ),
