@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2019 at 06:22 PM
+-- Generation Time: Aug 24, 2019 at 09:15 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -43,13 +43,19 @@ CREATE TABLE `complaint` (
 --
 
 INSERT INTO `complaint` (`id`, `receive_code`, `level_confidential`, `complaint_code`, `subject`, `source_id`, `owner_id`) VALUES
-(1, '1', 'ลับมาก', '1', 'sadsfdg', 1, 2),
+(1, '1', 'ลับมาก', '1', 'sadsfdg', 1, 1),
 (2, '2', 'ลับที่สุด', '2', 'lKJHKGJFHG', 1, 1),
 (3, '3', 'ลับมาก', '3', 'KLJKHGJFHGD', 1, 1),
-(4, '', 'ลับ', '', '', 1, 2),
-(5, '', 'ลับ', '', '', 1, 2),
+(4, '', 'ลับ', '', '', 1, 1),
+(5, '', 'ลับ', '', '', 1, 1),
 (6, '', 'ลับ', '', '', 1, 1),
-(7, '', 'ลับ', '', '', 1, 2);
+(7, '', 'ลับ', '', '', 1, 1),
+(8, '111', 'ลับมาก', '8', 'asdfghjkl', 3, 1),
+(9, '1119', 'ลับ', '12', 'knlkm bjnj', 1, 1),
+(10, '9', 'ลับ', '89', 'jhkjnlm;,\'.', 1, 1),
+(11, '123', 'ลับ', '5678', 'qwertyuiop[', 1, 1),
+(12, '123', 'ลับที่สุด', '123456er7t8989', 'อยากกินไก่ทอด', 1, 2),
+(13, '456', 'ลับที่สุด', '23456789', 'หนังสือเรียน', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -97,7 +103,7 @@ INSERT INTO `disciplinary_action` (`id`, `action_name`, `action_type`) VALUES
 CREATE TABLE `investigate` (
   `id` int(11) NOT NULL COMMENT 'รหัสการสอบสวน',
   `complaint_id` int(11) DEFAULT NULL COMMENT 'รหัสการร้องเรียน',
-  `subject` int(11) DEFAULT NULL COMMENT 'เรื่อง',
+  `subject` varchar(50) DEFAULT NULL COMMENT 'เรื่อง',
   `investigate_type` enum('unfounded','light_punishment','punishment') NOT NULL DEFAULT 'light_punishment' COMMENT 'ประเภทการสอบสวน',
   `result` varchar(100) DEFAULT NULL COMMENT 'ผลการสอบสวน',
   `appeal` enum('Y','N') DEFAULT 'N' COMMENT 'การอุทธรณ์',
@@ -140,7 +146,8 @@ CREATE TABLE `personal` (
 
 INSERT INTO `personal` (`id`, `citizen_id`, `fname`, `lname`, `position`, `email`) VALUES
 (1, '0000000000001', 'ผู้ดูแลระบบ', '-', 'ผู้จัดการระบบ', 'admin.pds@vec.go.th'),
-(2, '0000000000002', 'เจ้าหน้าที่ธุรการ', '-', 'เจ้าหน้าที่', 'staff.pds@vec.go.th');
+(2, '0000000000002', 'เจ้าหน้าที่ธุรการ', '-', 'เจ้าหน้าที่', 'staff.pds@vec.go.th'),
+(3, '0000000000003', 'นิติกร', '-', 'นิติกร', NULL);
 
 -- --------------------------------------------------------
 
@@ -221,7 +228,7 @@ CREATE TABLE `userdata` (
   `password` varchar(32) DEFAULT NULL COMMENT 'รหัสผ่าน',
   `personal_id` int(11) DEFAULT NULL COMMENT 'รหัสบุคลากร',
   `active` enum('Y','N','B') NOT NULL DEFAULT 'Y' COMMENT 'เปิดใช้งาน',
-  `user_type` enum('admin','advisor','staff','user') NOT NULL DEFAULT 'user' COMMENT 'ประเภทผู้ใช้',
+  `user_type` enum('admin','advisor',' lawyer','staff','user') NOT NULL DEFAULT 'user' COMMENT 'ประเภทผู้ใช้',
   `last_login` datetime DEFAULT NULL COMMENT 'ลงชื่อเข้าใช้ครั้งสุดท้าย'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -231,7 +238,8 @@ CREATE TABLE `userdata` (
 
 INSERT INTO `userdata` (`id`, `username`, `password`, `personal_id`, `active`, `user_type`, `last_login`) VALUES
 (1, 'admin', '25d55ad283aa400af464c76d713c07ad', 1, 'Y', 'admin', '2019-08-23 17:39:55'),
-(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-23 23:20:30');
+(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-24 08:23:34'),
+(3, 'pds01', '25d55ad283aa400af464c76d713c07ad', 3, 'Y', ' lawyer', '2019-08-24 14:12:12');
 
 -- --------------------------------------------------------
 
@@ -330,7 +338,7 @@ ALTER TABLE `witness`
 -- AUTO_INCREMENT for table `complaint`
 --
 ALTER TABLE `complaint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสเรื่องร้องเรียน', AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสเรื่องร้องเรียน', AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `complaint_timeline`
@@ -360,7 +368,7 @@ ALTER TABLE `investigate_timeline`
 -- AUTO_INCREMENT for table `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสบุคลากร', AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสบุคลากร', AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `source`
@@ -378,7 +386,7 @@ ALTER TABLE `step_data`
 -- AUTO_INCREMENT for table `userdata`
 --
 ALTER TABLE `userdata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้ใช้', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้ใช้', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `witness`
