@@ -4,14 +4,14 @@
 <div class="card"><div class="card-body">
 <?php
     
-    $data=array(
-        'id'=>'modal_investigate',
-        'label'=>'<i class="fa fa-plus"></i> เพิ่มเรื่องสอบสวน',
-        'color'=>'btn-primary',
-        'onlyClickClose'=>true,
-        //'onClick'=>'gen_index()',
-    );
-    print gen_modal_botton($data);
+    // $data=array(
+    //     'id'=>'modal_investigate',
+    //     'label'=>'<i class="fa fa-plus"></i> เพิ่มเรื่องสอบสวน',
+    //     'color'=>'btn-primary',
+    //     'onlyClickClose'=>true,
+    //     //'onClick'=>'gen_index()',
+    // );
+    // print gen_modal_botton($data);
 ?>
 
 </div>
@@ -43,39 +43,39 @@ print "<p id='investigate_table'>โปรดรอสักครู่..</p>";
             'label' => 'ประเภทการสอบสวน',
             'type' => 'select',
             'item' => array(
-                'unfounded'=>'ไม่มีมูล',
+                // 'unfounded'=>'ไม่มีมูล',
                 'light_punishment'=>'มีมูล ผิดวินัยไม่ร้ายแรง',
                 'punishment'=>'มีมูล ผิดวินัยร้ายแรง',
             ),
             'icon' => 'fa fa-user-secret'
         ),
-        'result' => array(
-            'label' => 'ผลการสอบสวน',
-            'type' => 'textarea',
-            'icon' => 'fa fa-edit',
-            'value' => $docData['result']
-        ),
-        'appeal' => array(
-            'label' => 'การอุทธรณ์',
-            'type' => 'select',
-            'item'=>array(
-                'Y'=>'อุทธรณ์',
-                'N'=>'ไม่อุทธรณ์',
-            ),
-            'icon' => 'fa fa-list'
-        ),
-        'undecided_case_code' => array(
-            'label' => 'หมายเลขคดีดำ',
-            'type' => 'text',
-            'icon' => 'fa fa-edit',
-            'value' => $docData['undecided_case_code']
-        ),
-        'decided_case_code' => array(
-            'label' => 'หมายเลขคดีแดง',
-            'type' => 'text',
-            'icon' => 'fa fa-edit',
-            'value' => $docData['decided_case_code']
-        ),
+        // 'result' => array(
+        //     'label' => 'ผลการสอบสวน',
+        //     'type' => 'textarea',
+        //     'icon' => 'fa fa-edit',
+        //     'value' => $docData['result']
+        // ),
+        // 'appeal' => array(
+        //     'label' => 'การอุทธรณ์',
+        //     'type' => 'select',
+        //     'item'=>array(
+        //         'Y'=>'อุทธรณ์',
+        //         'N'=>'ไม่อุทธรณ์',
+        //     ),
+        //     'icon' => 'fa fa-list'
+        // ),
+        // 'undecided_case_code' => array(
+        //     'label' => 'หมายเลขคดีดำ',
+        //     'type' => 'text',
+        //     'icon' => 'fa fa-edit',
+        //     'value' => $docData['undecided_case_code']
+        // ),
+        // 'decided_case_code' => array(
+        //     'label' => 'หมายเลขคดีแดง',
+        //     'type' => 'text',
+        //     'icon' => 'fa fa-edit',
+        //     'value' => $docData['decided_case_code']
+        // ),
         'submit' => array(
             'label' => '&nbsp;',
             'type' => 'submit',

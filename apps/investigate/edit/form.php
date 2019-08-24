@@ -17,43 +17,43 @@ $inputDetail = array(
         'icon' => 'fa fa-edit',
         'value' => $investigate_data['subject']
     ),
-    'investigate_type' => array(
-        'label' => 'ประเภทการสอบสวน',
-        'type' => 'select',
-        'item' => array(
-            'unfounded'=>'ไม่มีมูล',
-            'light_punishment'=>'มีมูล ผิดวินัยไม่ร้ายแรง',
-            'punishment'=>'มีมูล ผิดวินัยร้ายแรง',
-        ),
-        'icon' => 'fa fa-user-secret'
-    ),
-    'result' => array(
-        'label' => 'ผลการสอบสวน',
-        'type' => 'textarea',
-        'icon' => 'fa fa-edit',
-        'value' => $investigate_data['result']
-    ),
-    'appeal' => array(
-        'label' => 'การอุทธรณ์',
-        'type' => 'select',
-        'item'=>array(
-            'Y'=>'อุทธรณ์',
-            'N'=>'ไม่อุทธรณ์',
-        ),
-        'icon' => 'fa fa-list'
-    ),
-    'undecided_case_code' => array(
-        'label' => 'หมายเลขคดีดำ',
-        'type' => 'text',
-        'icon' => 'fa fa-edit',
-        'value' => $investigate_data['undecided_case_code']
-    ),
-    'decided_case_code' => array(
-        'label' => 'หมายเลขคดีแดง',
-        'type' => 'text',
-        'icon' => 'fa fa-edit',
-        'value' => $investigate_data['decided_case_code']
-    ),
+    // 'investigate_type' => array(
+    //     'label' => 'ประเภทการสอบสวน',
+    //     'type' => 'select',
+    //     'item' => array(
+    //         'unfounded'=>'ไม่มีมูล',
+    //         'light_punishment'=>'มีมูล ผิดวินัยไม่ร้ายแรง',
+    //         'punishment'=>'มีมูล ผิดวินัยร้ายแรง',
+    //     ),
+    //     'icon' => 'fa fa-user-secret'
+    // ),
+    // 'result' => array(
+    //     'label' => 'ผลการสอบสวน',
+    //     'type' => 'textarea',
+    //     'icon' => 'fa fa-edit',
+    //     'value' => $investigate_data['result']
+    // ),
+    // 'appeal' => array(
+    //     'label' => 'การอุทธรณ์',
+    //     'type' => 'select',
+    //     'item'=>array(
+    //         'Y'=>'อุทธรณ์',
+    //         'N'=>'ไม่อุทธรณ์',
+    //     ),
+    //     'icon' => 'fa fa-list'
+    // ),
+    // 'undecided_case_code' => array(
+    //     'label' => 'หมายเลขคดีดำ',
+    //     'type' => 'text',
+    //     'icon' => 'fa fa-edit',
+    //     'value' => $investigate_data['undecided_case_code']
+    // ),
+    // 'decided_case_code' => array(
+    //     'label' => 'หมายเลขคดีแดง',
+    //     'type' => 'text',
+    //     'icon' => 'fa fa-edit',
+    //     'value' => $investigate_data['decided_case_code']
+    // ),
     'submit' => array(
         'label' => '&nbsp;',
         'type' => 'submit',

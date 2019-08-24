@@ -37,7 +37,7 @@ foreach($investigate_data as $row){
         'appeal'=>array_search($row['appeal'],$arr_appeal),
         'case_code'=>print_case_code($row['undecided_case_code'],$row['decided_case_code']),
         'edit_button'=>'<a '.gen_modal_link($data_edit).' class="btn btn-primary" ><i class="fa fa-edit"></i> แก้ไข</a>',
-        'delete_button'=>'<a '.gen_modal_link($data_delete).' class="btn btn-danger" ><i class="fa fa-trash"></i> ลบ</a>',
+        'delete_button'=>'<a '.gen_modal_link($data_delete).' class="btn btn-danger" ><i class="fa fa-sign-out"></i> ส่งกลับ</a>',
     );
     
 }
