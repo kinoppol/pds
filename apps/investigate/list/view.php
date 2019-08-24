@@ -21,13 +21,13 @@
 <?php
 load_fun('form');
 
-print "<p id='complaint_table'>โปรดรอสักครู่..</p>";
+print "<p id='investigate_table'>โปรดรอสักครู่..</p>";
 
 //ฟอร์มรับเรื่อง
     $inputDetail = array(
         'complaint_id' => array(
             'label' => 'รหัสการร้องเรียน',
-            'type' => 'text',
+            'type' => 'number',
             'placeholder' => 'ว่างไว้เพื่อกำหนดโดยอัตโนมัติ',
             'icon' => 'fa fa-sort-amount-desc',
             'value' => $docData['complaint_id']
@@ -84,7 +84,7 @@ print "<p id='complaint_table'>โปรดรอสักครู่..</p>";
     );
     $onSubmit .= '
     $("#modal_investigate").modal("hide");
-    load_table_complaint();
+    load_table_investigate();
     ';
     $inputForm = genInput($inputDetail, 5, 12);
     $saveURL=site_url('ajax/investigate/receive/save');
@@ -105,14 +105,14 @@ print "<p id='complaint_table'>โปรดรอสักครู่..</p>";
     print gen_modal_box($data);
 
     $data=array(
-        'id'=>'transfer_complaint',
-        'title'=>'มอบหมายสำนวน',
+        'id'=>'delete_investigate',
+        'title'=>'ลบเรื่องสอบสวน',
         'content'=>'<p id="progress_content">โปรดรอสักครู่..</p>'                
     );
     print gen_modal($data);
 
     $data=array(
-        'id'=>'edit_complaint',
+        'id'=>'edit_investigate',
         'title'=>'แก้ไขเรื่องที่สอบสวน',
         'content'=>'<p id="progress_content">โปรดรอสักครู่..</p>'                
     );
@@ -126,10 +126,11 @@ print "<p id='complaint_table'>โปรดรอสักครู่..</p>";
 </div>
 <script>
 $(function(){
-    load_table_complaint();
+    load_table_investigate();
 });
-    function load_table_complaint(){
-        $('#complaint_table').load('<?php
+
+    function load_table_investigate(){
+        $('#investigate_table').load('<?php
             print site_url('ajax/investigate/list/table');
             ?>');
     }

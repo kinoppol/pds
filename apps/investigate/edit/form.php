@@ -1,46 +1,58 @@
 <?php
 load_fun('form');
-
+$investigate_data=sSelectTb($systemDb,'investigate','*','id='.$hGET['id']);
+$investigate_data=$investigate_data[0];
 $inputDetail = array(
-    'receive_code' => array(
-        'label' => 'เลขรับเรื่อง',
-        'type' => 'text',
-        'placeholder' => '',
+    'complaint_id' => array(
+        'label' => 'รหัสการร้องเรียน',
+        'type' => 'number',
+        'placeholder' => 'ว่างไว้เพื่อกำหนดโดยอัตโนมัติ',
         'icon' => 'fa fa-sort-amount-desc',
-        'value' => $docData['doc_code']
+        'value' => $investigate_data['complaint_id']
     ),
-    'complaint_code' => array(
-        'label' => 'เลขเรื่องร้องเรียน',
+    'subject' => array(
+        'label' => 'เรื่องที่สอบสวน',
         'type' => 'text',
-        'placeholder' => '',
+        'placeholder' => 'ว่างไว้เพื่อกำหนดโดยอัตโนมัติ',
         'icon' => 'fa fa-edit',
-        'value' => $docData['note']
+        'value' => $investigate_data['subject']
     ),
-    'level_confidential' => array(
-        'label' => 'ชั้นความรับ',
+    'investigate_type' => array(
+        'label' => 'ประเภทการสอบสวน',
         'type' => 'select',
         'item' => array(
-            'ลับ'=>'ลับ',
-            'ลับมาก'=>'ลับมาก',
-            'ลับที่สุด'=>'ลับที่สุด',
+            'unfounded'=>'ไม่มีมูล',
+            'light_punishment'=>'มีมูล ผิดวินัยไม่ร้ายแรง',
+            'punishment'=>'มีมูล ผิดวินัยร้ายแรง',
         ),
         'icon' => 'fa fa-user-secret'
     ),
-    'subject' => array(
-        'label' => 'ชื่อเรื่องร้องเรียน',
+    'result' => array(
+        'label' => 'ผลการสอบสวน',
         'type' => 'textarea',
         'icon' => 'fa fa-edit',
-        'value' => $docData['note']
+        'value' => $investigate_data['result']
     ),
-    'source_id' => array(
-        'label' => 'ประเภทที่มา',
+    'appeal' => array(
+        'label' => 'การอุทธรณ์',
         'type' => 'select',
         'item'=>array(
-            1=>'บัตรสนเทห์',
-            2=>'หน่วยงานภายนอก',
-            3=>'เว็บไซต์',
+            'Y'=>'อุทธรณ์',
+            'N'=>'ไม่อุทธรณ์',
         ),
         'icon' => 'fa fa-list'
+    ),
+    'undecided_case_code' => array(
+        'label' => 'หมายเลขคดีดำ',
+        'type' => 'text',
+        'icon' => 'fa fa-edit',
+        'value' => $investigate_data['undecided_case_code']
+    ),
+    'decided_case_code' => array(
+        'label' => 'หมายเลขคดีแดง',
+        'type' => 'text',
+        'icon' => 'fa fa-edit',
+        'value' => $investigate_data['decided_case_code']
     ),
     'submit' => array(
         'label' => '&nbsp;',
