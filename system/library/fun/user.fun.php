@@ -64,7 +64,7 @@
               redirect($default_uri);
             }else{
               
-              redirect(site_url('main/home/profile/view'),true);
+              redirect(site_url('main/home/dashboard/view'),true);
               //exit();
             }
         }else{
