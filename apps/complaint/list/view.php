@@ -1,3 +1,6 @@
+<?php
+    $title="รับเรื่องร้องเรียน";
+?>
 <div class="container">
 <div id="ajaxResponse">
 </div>
