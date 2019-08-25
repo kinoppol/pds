@@ -4,7 +4,7 @@ if(isset($_POST['subject'])&&trim($_POST['subject'])!=''){
 $data=array(
     'receive_code'=>sQ($_POST['receive_code']),
     'level_confidential'=>sQ($_POST['level_confidential']),
-    'complaint_code'=>sQ($_POST['complaint_code']),
+    'receive_date'=>sQ($_POST['receive_date']),
     'subject'=>sQ($_POST['subject']),
     'complainant'=>sQ($_POST['complainant']),
     'source_id'=>sQ($_POST['source_id']),
@@ -27,6 +27,6 @@ $("#receiveForm").trigger("reset");
     
     $data['icon']='fa fa-save';
     $data['color']='alert-danger';
-    $data['text']='&nbsp;ไม่สามารถบันทึกข้อมูลได้'.$err_txt;
+    $data['text']='&nbsp;ไม่สามารถบันทึกข้อมูลได้'.$err_txt.$systemDb['db']->error;
 print genAlert($data);
 }

@@ -52,8 +52,8 @@ $("#modal_resive").modal("hide");
 ';
 $inputForm = genInput($inputDetail, 4, 12);
 $saveURL=site_url('ajax/investigate/receive/save');
-print gen_form(array(
-'id' => 'receiveForm',
+print genForm(array(
+'id' => 'editForm',
 'action' => $saveURL,
 'ajaxSubmit' => $inputDetail,
 'response' => 'ajaxResponse',

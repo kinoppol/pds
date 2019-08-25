@@ -11,12 +11,12 @@ $inputDetail = array(
         'icon' => 'fa fa-sort-amount-desc',
         'value' => $complaint_data['receive_code']
     ),
-    'complaint_code' => array(
-        'label' => 'เลขเรื่องร้องเรียน',
+    'receive_date' => array(
+        'label' => 'วันที่รับเรื่อง',
         'type' => 'text',
         'placeholder' => '',
-        'icon' => 'fa fa-edit',
-        'value' => $complaint_data['complaint_code']
+        'icon' => 'fa fa-calendar',
+        'value' => $complaint_data['receive_date']
     ),
     'level_confidential' => array(
         'label' => 'ชั้นความรับ',
