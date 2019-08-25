@@ -105,7 +105,7 @@ if(!isset($_COOKIE['start_page'])&&($template!="ajax"||!$_SESSION['siteConfig'][
               }else{*/
                 if(!$template)$template='main';
                 if(!$app)$app='home';
-                if(!$function)$function='profile';
+                if(!$function)$function='dashboard';
                 if(!$file)$file='view';    
               //}
       }elseif(!$template||!$app||!$function||!$file){
