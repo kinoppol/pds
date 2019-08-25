@@ -37,6 +37,7 @@
           ]
         }]
       },
+      options: {
         responsive: true,
         tooltips: {
           enabled: true,
