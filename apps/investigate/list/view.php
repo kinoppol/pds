@@ -26,18 +26,32 @@ print "<p id='investigate_table'>โปรดรอสักครู่..</p>";
 //ฟอร์มรับเรื่อง
     $inputDetail = array(
         'complaint_id' => array(
-            'label' => 'รหัสการร้องเรียน',
+            'label' => 'เลขสั่งการสอบสวน',
             'type' => 'number',
             'placeholder' => 'ว่างไว้เพื่อกำหนดโดยอัตโนมัติ',
             'icon' => 'fa fa-sort-amount-desc',
             'value' => $docData['complaint_id']
         ),
+        'investigate_code' => array(
+            'label' => 'เลขสั่งการสอบสวน',
+            'type' => 'number',
+            'placeholder' => 'เลขที่ได้รับจากคำสั่งสอบสวน',
+            'icon' => 'fa fa-sort-amount-desc',
+            'value' => $docData['investigate_code']
+        ),
         'subject' => array(
             'label' => 'เรื่องที่สอบสวน',
             'type' => 'text',
-            'placeholder' => 'ว่างไว้เพื่อกำหนดโดยอัตโนมัติ',
+            'placeholder' => 'ชื่อจากเรื่องร้องเรียน หรือ ชื่อเรื่องใหม่',
             'icon' => 'fa fa-edit',
             'value' => $docData['subject']
+        ),
+        'investigator' => array(
+            'label' => 'ผู้ถูกสอบสวน',
+            'type' => 'text',
+            'placeholder' => 'ชื่อผู้ถูกสอบสวน',
+            'icon' => 'fa fa-user',
+            'value' => $docData['investigator']
         ),
         'investigate_type' => array(
             'label' => 'ประเภทการสอบสวน',
@@ -46,36 +60,18 @@ print "<p id='investigate_table'>โปรดรอสักครู่..</p>";
                 // 'unfounded'=>'ไม่มีมูล',
                 'light_punishment'=>'มีมูล ผิดวินัยไม่ร้ายแรง',
                 'punishment'=>'มีมูล ผิดวินัยร้ายแรง',
-            ),
+                ),
             'icon' => 'fa fa-user-secret'
         ),
-        // 'result' => array(
-        //     'label' => 'ผลการสอบสวน',
-        //     'type' => 'textarea',
-        //     'icon' => 'fa fa-edit',
-        //     'value' => $docData['result']
-        // ),
-        // 'appeal' => array(
-        //     'label' => 'การอุทธรณ์',
-        //     'type' => 'select',
-        //     'item'=>array(
-        //         'Y'=>'อุทธรณ์',
-        //         'N'=>'ไม่อุทธรณ์',
-        //     ),
-        //     'icon' => 'fa fa-list'
-        // ),
-        // 'undecided_case_code' => array(
-        //     'label' => 'หมายเลขคดีดำ',
-        //     'type' => 'text',
-        //     'icon' => 'fa fa-edit',
-        //     'value' => $docData['undecided_case_code']
-        // ),
-        // 'decided_case_code' => array(
-        //     'label' => 'หมายเลขคดีแดง',
-        //     'type' => 'text',
-        //     'icon' => 'fa fa-edit',
-        //     'value' => $docData['decided_case_code']
-        // ),
+        'owner_id' => array(
+            'label' => 'เจ้าของสำนวน',
+            'type' => 'select',
+            'item' => array(
+                // 'unfounded'=>'ไม่มีมูล',
+                'light_punishment'=>'มีมูล ผิดวินัยไม่ร้ายแรง',
+                'punishment'=>'มีมูล ผิดวินัยร้ายแรง',
+            ),
+        ),
         'submit' => array(
             'label' => '&nbsp;',
             'type' => 'submit',

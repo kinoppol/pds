@@ -2,15 +2,17 @@
 load_fun('system_alert');
 if(isset($_POST['subject'])&&trim($_POST['subject'])!=''){
 $data=array(
-    'complaint_id'=>sQ($_POST['complaint_id']),
+    'investigate_code'=>sQ($_POST['investigate_code']),
     'subject'=>sQ($_POST['subject']),
     'investigate_type'=>sQ($_POST['investigate_type']),
-    'result'=>sQ($_POST['result']),
-    'appeal'=>sQ($_POST['appeal']),
-    'undecided_case_code'=>sQ($_POST['undecided_case_code']),
-    'decided_case_code'=>sQ($_POST['decided_case_code']),
+    'investigator'=>sQ($_POST['investigator']),
+    // 'result'=>sQ($_POST['result']),
+    // 'appeal'=>sQ($_POST['appeal']),
+    // 'undecided_case_code'=>sQ($_POST['undecided_case_code']),
+    // 'decided_case_code'=>sQ($_POST['decided_case_code']),
 );
-$result=sInsertTb($systemDb,"investigate",$data);
+$cond=sQ($_POST['investigate_id']);
+$result=sUpdateTb($systemDb,"investigate",$data,'id='.$cond);
 }else{
     $err_txt=' โปรดระบุชื่อเรื่อง';
 }
