@@ -35,12 +35,12 @@ print "<p id='complaint_table'>โปรดรอสักครู่..</p>";
             'icon' => 'fa fa-sort-amount-desc',
             'value' => ''
         ),
-        'complaint_code' => array(
-            'label' => 'เลขเรื่องร้องเรียน',
-            'type' => 'text',
+        'receive_date' => array(
+            'label' => 'วันที่รับเรื่อง',
+            'type' => 'date',
             'placeholder' => '',
-            'icon' => 'fa fa-edit',
-            'value' => ''
+            'icon' => 'fa fa-calendar',
+            'value' => date('Y-m-d')
         ),
         'level_confidential' => array(
             'label' => 'ชั้นความรับ',
@@ -71,8 +71,15 @@ print "<p id='complaint_table'>โปรดรอสักครู่..</p>";
                 1=>'บัตรสนเท่ห์',
                 2=>'หน่วยงานภายนอก',
                 3=>'เว็บไซต์',
+                4=>'สตง.',
+                5=>'ป.ป.ช.'
             ),
             'icon' => 'fa fa-list'
+        ),
+        'source_name' => array(
+            'label' => 'ชื่อที่มา',
+            'type' => 'text',
+            'icon' => 'fa fa-edit'
         ),
         'submit' => array(
             'label' => '&nbsp;',
