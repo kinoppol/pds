@@ -3,7 +3,7 @@
 load_fun('table');
 load_fun('datatable');
 
-$complaint_data=sSelectTb($systemDb,"complaint",'id,receive_code,complaint_code,subject,source_id','owner_id='.current_user('id'));
+$complaint_data=sSelectTb($systemDb,"complaint",'id,receive_code,receive_date,subject,source_id','owner_id='.current_user('id'));
 //print_r($complaint_data);
 
 $i=-1;
@@ -16,7 +16,7 @@ foreach($complaint_data as $row){
     );
     $table_data[]=array(
         'receive_code'=>$row['receive_code'],
-        'complaint_code'=>$row['complaint_code'],
+        'receive_date'=>$row['receive_date'],
         'subject'=>$row['subject'],
         'source_id'=>$row['source_id'],
         'edit_button'=>'
@@ -27,7 +27,7 @@ foreach($complaint_data as $row){
 }
 $data=array("head"=>array(
     'เลขรับเรื่อง',
-    'หมายเลขเรื่องร้องเรียน',
+    'วันที่รับเรื่อง',
     'ชื่อเรื่องร้องเรียน',
     'แหล่งที่มา',
     'ดำเนินการ',
