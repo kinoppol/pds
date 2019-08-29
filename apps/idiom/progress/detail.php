@@ -14,7 +14,8 @@ $inputDetail = array(
         'type' => 'file',
         'class'=> 'btn-primary',
         'placeholder' => 'ภาพถ่ายหรือไฟล์ PDF',
-        'icon' => 'fa fa-paperclip',
+        'button_text' => 'เลือกไฟล์ <i class="fa fa-paperclip"></i>',
+        //'icon' => 'fa fa-paperclip',
         'value' => $complaint_data['receive_code']
     ),
     'submit' => array(
@@ -29,10 +30,10 @@ $("#detail_idiom").modal("hide");
 $inputForm = genInput($inputDetail, 4, 12);
 $saveURL=site_url('ajax/idiom/progress/save/id/'.$hGET['id']);
 print gen_form(array(
-'id' => 'editForm',
+'id' => 'stepForm',
 'action' => $saveURL,
 'ajaxSubmit' => $inputDetail,
-'response' => 'ajaxResponse',
+'response' => 'stepResponse',
 'onSubmit' => $onSubmit,
 'item' => $inputForm
 ));

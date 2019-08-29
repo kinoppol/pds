@@ -2,6 +2,8 @@
 //$complaint_data=sSelectTb($systemDb,'complaint','*','id='.$hGET['id']);
 //$complaint_data=$complaint_data[0];
 ?>
+<div id="stepResponse">
+</div>
 <div class="card"><div class="card-body">
 <?php
     $step=array(
