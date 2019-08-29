@@ -134,8 +134,8 @@ editor".$k.".setOption(\"theme\", \"midnight\");
         				
         				$row['class']=$row['class']==''?'btn btn-default':$row['class'];
         				
-        				$ret.="<input type='file' name='".$k."' id='".$k."' ".$attr." class=\"hidden\" ".($row['multiple']?'multiple':'').">";
-        				$ret.='<input type="text" id="'.$k.'_path" '.$attr.' class="form-control '.$row['textClass'].'" disabled>
+        				$ret.="<input type='file' name='".$k."' id='".$k."' ".$attr." class=\"d-none\" ".($row['multiple']?'multiple':'').">";
+        				$ret.='<input type="text" id="'.$k.'_path" '.$attr.' class="form-control '.$row['textClass'].'" placeholder="'.$row['placeholder'].'" disabled>
         				<span class="input-group-btn">';
         				$ret.='<button class="form-control '.$row['class'].'" type="button" id="'.$k.'_btn">
                 <i class="fa fa-search"></i> เลือกไฟล์</button>

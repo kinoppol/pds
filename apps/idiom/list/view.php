@@ -13,6 +13,13 @@ $data=array(
     'content'=>'<p id="progress_content">โปรดรอสักครู่..</p>'                
 );
 print gen_modal($data);
+
+$data=array(
+    'id'=>'detail_idiom',
+    'title'=>'รายละเอียดการดำเนินการ',
+    'content'=>'<p id="progress_content">โปรดรอสักครู่..</p>'                
+);
+print gen_modal($data);
 ?>
 
 </div>

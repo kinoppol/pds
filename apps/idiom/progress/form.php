@@ -9,7 +9,7 @@
     );
     $data=array(
         'id'=>'modal_resive',
-        'label'=>'<i class="fa fa-check"></i> แต่งตั้งกรรมการสืบ',
+        'label'=>'<i class="fa fa-check"></i> รับเรื่องร้องเรียน',
         'color'=>'btn-success btn-lg btn-block',
         'onlyClickClose'=>true,
         //'onClick'=>'gen_index()',
@@ -21,15 +21,12 @@
 </div>
 <div class="card"><div class="card-body">
 <?php
-    
-    $data=array(
-        'id'=>'modal_resive',
-        'label'=>'<i class="fa fa-coffee"></i> แจ้งกรรมการ',
-        'color'=>'btn-primary btn-lg btn-block',
-        'onlyClickClose'=>true,
-        //'onClick'=>'gen_index()',
+    $data_progress=array(
+        'id'=>'detail_idiom',
+        'src'=>site_url('ajax/idiom/progress/detail/id/'.$row['id']),
+        'onlyClickClose'=>true,    
     );
-    print gen_modal_botton($data);
+    print '<a '.gen_modal_link($data_progress).' class="btn btn-primary btn-lg btn-block" ><i class="fa fa-edit"></i> แต่งตั้งกรรมการสืบ</a>';
 ?>
 
 </div>
