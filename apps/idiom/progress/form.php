@@ -6,6 +6,7 @@
 </div>
 <div class="card"><div class="card-body">
 <?php
+$complaint_id=$hGET['id'];
     $step=array(
         
     );
@@ -21,34 +22,19 @@
 
 </div>
 </div>
-<div class="card"><div class="card-body">
+
+<div id="show_step">
+</div>
+
 <?php
-$step=array();
-$step_data=sSelectTb($systemDb,'step_data','*','id between 2 AND 6');
-foreach($step_data as $row){
-$step[]=array(
-        'id'=>$row['id'],
-        'bullet'=>'fa fa-edit',
-        'title'=>$row['step_name'],
-        'color'=>'btn-warning',
-    );
-}
-print gen_progress_btn($step,$hGET['id']);
+$systemFoot.='
+<script>
+    $(function(){
+        load_step();
+    });
 
-function gen_progress_btn($data,$com_id){
-$ret='';
-    foreach($data as $row){
-        $data_progress=array(
-            'id'=>'detail_idiom',
-            'src'=>site_url('ajax/idiom/progress/detail/id/'.$com_id.'/step_id/'.$row['id']),
-            'onlyClickClose'=>true,    
-        );
-        $ret.= '<a '.gen_modal_link($data_progress).' class="btn '.$row['color'].' btn-lg btn-block" ><i class="'.$row['bullet'].'"></i> '.$row['title'].'</a>';
+    function load_step(){
+        $("#show_step").load("'.site_url('ajax/idiom/progress/show_step/id/'.$complaint_id).'");
     }
-    return $ret;
-}
-   
-?>
-
-</div>
-</div>
+</script>
+';

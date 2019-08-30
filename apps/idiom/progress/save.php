@@ -83,7 +83,8 @@ if($result){
     $data['text']='&nbsp;บันทึกข้อมูลเรียบร้อยแล้ว';
 print genAlert($data);
 print '<script>
-$("#receiveForm").trigger("reset");
+$("#detail_idiom").modal("hide");
+load_step();
 </script>';
 }else{
     
