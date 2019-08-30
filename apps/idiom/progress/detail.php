@@ -4,20 +4,21 @@ $step_data=sSelectTb($systemDb,'step_data','*','id='.sQ($hGET['step_id']));
 $step_data=$step_data[0];
 print '<h3>'.$step_data['step_name'].'</h3>';
 $inputDetail = array(
-    'step_comment' => array(
-        'label' => 'ความเห็น',
-        'type' => 'text',
-        'placeholder' => '',
-        'icon' => 'fa fa-commenting-o',
-        'value' => $complaint_data['receive_code']
-    ),
     'attach_file' => array(
         'label' => 'แนบหลักฐาน',
         'type' => 'file',
         'class'=> 'btn-primary',
         'placeholder' => 'ภาพถ่ายหรือไฟล์ PDF',
         'button_text' => 'เลือกไฟล์ <i class="fa fa-paperclip"></i>',
+        'attr'=>array('accept'=>'.jpg,.jpeg,.pdf,.JPG,.JPEG,.PDF'),
         //'icon' => 'fa fa-paperclip',
+        'value' => $complaint_data['receive_code']
+    ),
+    'step_comment' => array(
+        'label' => 'ความเห็น',
+        'type' => 'text',
+        'placeholder' => '',
+        'icon' => 'fa fa-commenting-o',
         'value' => $complaint_data['receive_code']
     ),
     'submit' => array(
