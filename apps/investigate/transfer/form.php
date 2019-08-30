@@ -1,18 +1,18 @@
 <?php
 load_fun('form');
 
-$query='select userdata.id,concat(fname," ",lname) as flname from userdata left join personal on personal_id=personal.id';
+$query='SELECT userdata.id,CONCAT(fname," ",lname) AS flname FROM userdata LEFT JOIN personal ON personal_id=personal.id WHERE user_type="lawyer"';
 $user_data=mysqli_query($db,$query);
 
 while($row=mysqli_fetch_assoc($user_data)){
     $user_list[$row['id']]=$row['flname'];
 }
 
-$complaint_data=sSelectTb($systemDb,'complaint','subject','id='.$hGET['id']);
+$complaint_data=sSelectTb($systemDb,'investigate','subject','id='.$hGET['id']);
 $complaint_data=$complaint_data[0];
 
 $inputDetail = array(
-    'complaint_id' => array(
+    'investigate_id' => array(
         'type' => 'hidden',
         'value' => $hGET['id']
     ),
@@ -38,10 +38,10 @@ $inputDetail = array(
     )
 );
 $onSubmit .= '
-$("#transfer_complaint").modal("hide");
+$("#transfer_investigate").modal("hide");
 ';
 $inputForm = genInput($inputDetail, 4, 12);
-$saveURL=site_url('ajax/complaint/transfer/save');
+$saveURL=site_url('ajax/investigate/transfer/save');
 $form_content=genForm(array(
 'id' => 'transferForm',
 'action' => $saveURL,

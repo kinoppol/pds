@@ -2,13 +2,16 @@
 <div id="ajaxResponse">
 </div>
 
-<div class="card"><div class="card-body"><div class="row"><div class="col-12 col-md-12 col-lg-12">
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
 <?php
 load_fun('form');
 
-print "<p id='idiom_table'>โปรดรอสักครู่..</p>";
+print "<p id='investigate_table'>โปรดรอสักครู่..</p>";
 $data=array(
-    'id'=>'progress_idiom',
+    'id'=>'progress_investigate',
     'title'=>'การดำเนินสำนวน',
     'content'=>'<p id="progress_content">โปรดรอสักครู่..</p>'                
 );

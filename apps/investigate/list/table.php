@@ -2,7 +2,7 @@
 load_fun('table');
 load_fun('datatable');
 
-$investigate_data=sSelectTb($systemDb,"investigate",'id,complaint_id,investigate_code,subject,investigate_type,investigator,result,appeal,undecided_case_code,decided_case_code');
+$investigate_data=sSelectTb($systemDb,"investigate",'id,complaint_id,investigate_code,subject,investigate_type,investigator,result,appeal,undecided_case_code,decided_case_code','owner_id=2');
 //print_r($complaint_data);
 
 $arr_investigate_type=array('ไม่มีมูล'=>'unfounded','มีมูล ผิดวินัยไม่ร้ายแรง'=>'light_punishment','มีมูล ผิดวินัยร้ายแรง'=>'punishment',);
