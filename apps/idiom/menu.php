@@ -6,7 +6,8 @@ $menu['idiom']= array(
     'cond' => trim(current_user('user_type'))=='lawyer',
     'bullet' => 'fa fa-book',
     'item' => array(
-        'list' => array('bullet' => '',
+        'list' => array(
+            'bullet' => '',
             'title' => 'เรื่องร้องเรียน',
             'url' => 'main/idiom/list/view',
             'cond' => true,

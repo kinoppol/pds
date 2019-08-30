@@ -1,15 +1,18 @@
 <div class="container">
-<div id="ajaxResponse">
-</div>
+    <div id="ajaxResponse">
+    </div>
 
-<div class="card"><div class="card-body"><div class="row"><div class="col-12 col-md-12 col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
 <?php
 print "<p id='investigate_table'>โปรดรอสักครู่..</p>";
 
 
     $data=array(
-        'id'=>'delete_investigate',
-        'title'=>'ลบเรื่องสอบสวน',
+        'id'=>'transfer_investigate',
+        'title'=>'มอบหมายเรื่องสอบสวน',
         'content'=>'<p id="progress_content">โปรดรอสักครู่..</p>'                
     );
     print gen_modal($data);
@@ -22,10 +25,10 @@ print "<p id='investigate_table'>โปรดรอสักครู่..</p>";
     print gen_modal($data);
 ?>
 
-</div>
-</div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
 $(function(){
