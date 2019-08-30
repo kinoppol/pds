@@ -24,7 +24,7 @@
 <div class="card"><div class="card-body">
 <?php
 $step=array();
-$step_data=sSelectTb($systemDb,'step_data','*','id between 2 AND 5');
+$step_data=sSelectTb($systemDb,'step_data','*','id between 2 AND 6');
 foreach($step_data as $row){
 $step[]=array(
         'id'=>$row['id'],
