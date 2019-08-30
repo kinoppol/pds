@@ -1,6 +1,8 @@
 <?php
 load_fun('form');
-
+$step_data=sSelectTb($systemDb,'step_data','*','id='.sQ($hGET['step_id']));
+$step_data=$step_data[0];
+print '<h3>'.$step_data['step_name'].'</h3>';
 $inputDetail = array(
     'step_comment' => array(
         'label' => 'ความเห็น',

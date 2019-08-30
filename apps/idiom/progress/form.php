@@ -23,12 +23,31 @@
 </div>
 <div class="card"><div class="card-body">
 <?php
-    $data_progress=array(
-        'id'=>'detail_idiom',
-        'src'=>site_url('ajax/idiom/progress/detail/id/'.$row['id']),
-        'onlyClickClose'=>true,    
+$step=array();
+$step_data=sSelectTb($systemDb,'step_data','*','id between 2 AND 5');
+foreach($step_data as $row){
+$step[]=array(
+        'id'=>$row['id'],
+        'bullet'=>'fa fa-edit',
+        'title'=>$row['step_name'],
+        'color'=>'btn-primary',
     );
-    print '<a '.gen_modal_link($data_progress).' class="btn btn-primary btn-lg btn-block" ><i class="fa fa-edit"></i> แต่งตั้งกรรมการสืบ</a>';
+}
+print gen_progress_btn($step,$hGET['id']);
+
+function gen_progress_btn($data,$com_id){
+$ret='';
+    foreach($data as $row){
+        $data_progress=array(
+            'id'=>'detail_idiom',
+            'src'=>site_url('ajax/idiom/progress/detail/id/'.$com_id.'/step_id/'.$row['id']),
+            'onlyClickClose'=>true,    
+        );
+        $ret.= '<a '.gen_modal_link($data_progress).' class="btn btn-primary btn-lg btn-block" ><i class="'.$row['bullet'].'"></i> '.$row['title'].'</a>';
+    }
+    return $ret;
+}
+   
 ?>
 
 </div>

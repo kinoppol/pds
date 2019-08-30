@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2019 at 04:12 AM
+-- Generation Time: Aug 30, 2019 at 06:20 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -56,7 +56,8 @@ INSERT INTO `complaint` (`id`, `receive_code`, `level_confidential`, `receive_da
 (10, '9', 'ลับ', '0000-00-00', 'jhkjnlm;,\'.', '', 1, 1),
 (11, '123', 'ลับ', '0000-00-00', 'qwertyuiop[', '', 1, 1),
 (12, '123', 'ลับที่สุด', '0000-00-00', 'อยากกินไก่ทอด', '', 1, 3),
-(13, '456', 'ลับที่สุด', '0000-00-00', 'หนังสือเรียน', 'สมชาย สบายดี', 2, 2);
+(13, '456', 'ลับที่สุด', '0000-00-00', 'หนังสือเรียน', 'สมชาย สบายดี', 2, 2),
+(14, '123', 'ลับ', '2019-08-25', 'asdfghjkl;', '123er', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -69,7 +70,8 @@ CREATE TABLE `complaint_timeline` (
   `complaint_id` int(11) DEFAULT NULL COMMENT 'รหัสเรื่องร้องเรียน',
   `step_id` int(11) DEFAULT NULL COMMENT 'รหัสขั้นตอน',
   `date_step` date DEFAULT NULL COMMENT 'วันที่เข้าสู่ขั้นตอน',
-  `time_limit` date DEFAULT NULL COMMENT 'กำหนดเวลา(วัน)'
+  `time_limit` date DEFAULT NULL COMMENT 'กำหนดเวลา(วัน)',
+  `timeline_detail` int(11) NOT NULL COMMENT 'รายละเอียด'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ขั้นตอนการรับเรื่องร้องเรียนและสืบพยาน';
 
 -- --------------------------------------------------------
@@ -114,6 +116,14 @@ CREATE TABLE `investigate` (
   `decided_case_code` varchar(50) DEFAULT NULL COMMENT 'หมายเลขคดีแดง',
   `owner_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='การสอบสวน';
+
+--
+-- Dumping data for table `investigate`
+--
+
+INSERT INTO `investigate` (`id`, `complaint_id`, `investigate_code`, `subject`, `investigator`, `investigate_type`, `result`, `appeal`, `undecided_case_code`, `decided_case_code`, `owner_id`) VALUES
+(1, 1, '1', 'xxx', '1', 'light_punishment', NULL, 'N', NULL, NULL, 0),
+(2, 1, '1', 'xxx', '1', 'light_punishment', NULL, 'N', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -206,19 +216,20 @@ CREATE TABLE `step_data` (
 INSERT INTO `step_data` (`id`, `step_name`, `time_limit`) VALUES
 (1, 'รับเรื่องร้องเรียน', 7),
 (2, 'แต่งตั้งคณะกรรมการสืบสวน', 30),
-(3, 'ประชุมคณะกรรมการสืบสวน', 30),
-(4, 'ดำเนินการสืบสวน', 7),
-(5, 'ประชุมพิจารณาพยาน', 7),
-(6, 'แต่งตั้งกรรมการสอบสวน', 7),
-(7, 'จัดทำรายงานการสอบสวน (ผิดวินัยไม่ร้ายแรง)', 90),
-(8, 'จัดทำรายงานการสอบสวน (ผิดวินัยร้ายแรง)', 240),
-(9, 'ขยายเวลา (ไม่ร้ายแรง) ครั้งที่ 1', 30),
-(10, 'ขยายเวลา (ไม่ร้ายแรง) ครั้งที่ 2', 30),
-(11, 'ขยายเวลา (ร้ายแรง) ครั้งที่ 1', 60),
-(12, 'ขยายเวลา (ร้ายแรง) ครั้งที่ 2', 60),
-(13, 'ขยายเวลาตาม อกคศ.', 0),
-(14, 'เสร็จสิ้น', 0),
-(15, 'ยื่นอุทธรณ์', 0);
+(3, 'แจ้งประธานกรรมการและกรรมการ', 7),
+(4, 'ประชุมคณะกรรมการสืบสวน', 30),
+(5, 'ดำเนินการสืบสวน', 7),
+(6, 'ประชุมพิจารณาพยาน', 7),
+(7, 'แต่งตั้งกรรมการสอบสวน', 7),
+(8, 'จัดทำรายงานการสอบสวน (ผิดวินัยไม่ร้ายแรง)', 90),
+(9, 'จัดทำรายงานการสอบสวน (ผิดวินัยร้ายแรง)', 240),
+(10, 'ขยายเวลา (ไม่ร้ายแรง) ครั้งที่ 1', 30),
+(11, 'ขยายเวลา (ไม่ร้ายแรง) ครั้งที่ 2', 30),
+(12, 'ขยายเวลา (ร้ายแรง) ครั้งที่ 1', 60),
+(13, 'ขยายเวลา (ร้ายแรง) ครั้งที่ 2', 60),
+(14, 'ขยายเวลาตาม อกคศ.', 0),
+(15, 'เสร็จสิ้น', 0),
+(16, 'ยื่นอุทธรณ์', 0);
 
 -- --------------------------------------------------------
 
@@ -232,7 +243,7 @@ CREATE TABLE `userdata` (
   `password` varchar(32) DEFAULT NULL COMMENT 'รหัสผ่าน',
   `personal_id` int(11) DEFAULT NULL COMMENT 'รหัสบุคลากร',
   `active` enum('Y','N','B') NOT NULL DEFAULT 'Y' COMMENT 'เปิดใช้งาน',
-  `user_type` enum('admin','advisor',' lawyer','staff','user') NOT NULL DEFAULT 'user' COMMENT 'ประเภทผู้ใช้',
+  `user_type` enum('admin','advisor','lawyer','staff','user') NOT NULL DEFAULT 'user' COMMENT 'ประเภทผู้ใช้',
   `last_login` datetime DEFAULT NULL COMMENT 'ลงชื่อเข้าใช้ครั้งสุดท้าย'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -242,8 +253,8 @@ CREATE TABLE `userdata` (
 
 INSERT INTO `userdata` (`id`, `username`, `password`, `personal_id`, `active`, `user_type`, `last_login`) VALUES
 (1, 'admin', '25d55ad283aa400af464c76d713c07ad', 1, 'Y', 'admin', '2019-08-23 17:39:55'),
-(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-25 08:59:25'),
-(3, 'pds01', '25d55ad283aa400af464c76d713c07ad', 3, 'Y', ' lawyer', '2019-08-24 14:43:35');
+(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-29 23:30:22'),
+(3, 'pds01', '25d55ad283aa400af464c76d713c07ad', 3, 'Y', '', '2019-08-30 22:39:03');
 
 -- --------------------------------------------------------
 
@@ -342,7 +353,7 @@ ALTER TABLE `witness`
 -- AUTO_INCREMENT for table `complaint`
 --
 ALTER TABLE `complaint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสเรื่องร้องเรียน', AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสเรื่องร้องเรียน', AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `complaint_timeline`
@@ -360,7 +371,7 @@ ALTER TABLE `disciplinary_action`
 -- AUTO_INCREMENT for table `investigate`
 --
 ALTER TABLE `investigate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสการสอบสวน';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสการสอบสวน', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `investigate_timeline`
