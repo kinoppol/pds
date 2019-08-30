@@ -13,8 +13,8 @@ $menu['investigate']= array(
             ),
         'list_inv' => array('bullet' => '',
             'title' => 'การดำเนินการสอบสวน',
-            'url' => 'main/investigate/list_inv/view',
-            'cond' => trim(current_user('user_type')),
+            'url' => 'main/investigate/list_progress/view',
+            'cond' => trim(current_user('user_type'))=='lawyer',
             ),
     )
 );
