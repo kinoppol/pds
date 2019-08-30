@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2019 at 06:20 PM
+-- Generation Time: Aug 30, 2019 at 06:48 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -253,8 +253,8 @@ CREATE TABLE `userdata` (
 
 INSERT INTO `userdata` (`id`, `username`, `password`, `personal_id`, `active`, `user_type`, `last_login`) VALUES
 (1, 'admin', '25d55ad283aa400af464c76d713c07ad', 1, 'Y', 'admin', '2019-08-23 17:39:55'),
-(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-29 23:30:22'),
-(3, 'pds01', '25d55ad283aa400af464c76d713c07ad', 3, 'Y', '', '2019-08-30 22:39:03');
+(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-30 23:45:41'),
+(3, 'pds01', '25d55ad283aa400af464c76d713c07ad', 3, 'Y', 'lawyer', '2019-08-30 23:45:53');
 
 -- --------------------------------------------------------
 

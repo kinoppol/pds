@@ -24,7 +24,7 @@ $validextensions = array("jpeg", "jpg", "pdf","JPEG","JPG","PDF");
    if(!in_array($file_extension, $validextensions)){//ถ้าแนบไฟล์อื่นที่ไม่ได้กำหนดชนิดไว้
     $data['icon']='fa fa-save';
     $data['color']='alert-danger';
-    $data['text']='&nbsp;คุณแนบไฟล์อื่นที่ไม่ใช่รููปภาพหรือ PDF'.$err_txt.$systemDb['db']->error;
+    $data['text']='&nbsp;คุณแนบไฟล์อื่นที่ไม่ใช่รูปภาพหรือ PDF'.$err_txt.$systemDb['db']->error;
     print genAlert($data);
     print '
 <script>

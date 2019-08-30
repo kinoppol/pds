@@ -30,7 +30,7 @@ $step[]=array(
         'id'=>$row['id'],
         'bullet'=>'fa fa-edit',
         'title'=>$row['step_name'],
-        'color'=>'btn-primary',
+        'color'=>'btn-warning',
     );
 }
 print gen_progress_btn($step,$hGET['id']);
@@ -43,7 +43,7 @@ $ret='';
             'src'=>site_url('ajax/idiom/progress/detail/id/'.$com_id.'/step_id/'.$row['id']),
             'onlyClickClose'=>true,    
         );
-        $ret.= '<a '.gen_modal_link($data_progress).' class="btn btn-primary btn-lg btn-block" ><i class="'.$row['bullet'].'"></i> '.$row['title'].'</a>';
+        $ret.= '<a '.gen_modal_link($data_progress).' class="btn '.$row['color'].' btn-lg btn-block" ><i class="'.$row['bullet'].'"></i> '.$row['title'].'</a>';
     }
     return $ret;
 }
