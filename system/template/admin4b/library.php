@@ -10,7 +10,8 @@ function gen_sub_menu($arr,$id){
       foreach($arr as $sub){
                 	$sub_url_arr=explode('/',$sub['url']);
                 	//print_r();
-                	//print $currentURI;
+                    //print $currentURI;
+                    if($sub['cond']===false)continue;
                     if($sub['url']==$currentURI||($app==$sub_url_arr[1]&&$function==$sub_url_arr[2])){
                        
                        if($app==$sub_url_arr[1]&&$function==$sub_url_arr[2]){

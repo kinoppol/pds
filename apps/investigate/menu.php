@@ -3,7 +3,7 @@ $menu['investigate']= array(
     'class' => "header",
     'title' => 'การสอบสวน',
     //'url'=>'main/form/receive',
-    // 'cond' => true,
+     'cond' => true,
     'bullet' => 'fa fa-gavel',
     'item' => array(
         'list' => array('bullet' => '',
@@ -14,7 +14,7 @@ $menu['investigate']= array(
         'list_inv' => array('bullet' => '',
             'title' => 'การดำเนินการสอบสวน',
             'url' => 'main/investigate/list_inv/view',
-            'cond' => false,
+            'cond' => trim(current_user('user_type')),
             ),
     )
 );
