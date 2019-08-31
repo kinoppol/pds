@@ -96,6 +96,8 @@ print genAlert($data);
 
 print '
 <script>
+$(function(){
     $("#detail_idiom").modal("hide");
+});
 </script>
 ';

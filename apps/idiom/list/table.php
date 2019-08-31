@@ -3,7 +3,7 @@
 load_fun('table');
 load_fun('datatable');
 
-$complaint_data=sSelectTb($systemDb,"complaint",'id,receive_code,receive_date,subject,source_id','owner_id='.current_user('id'));
+$complaint_data=sSelectTb($systemDb,"complaint",'*','owner_id='.current_user('id').' AND result is NULL');
 //print_r($complaint_data);
 
 $i=-1;
