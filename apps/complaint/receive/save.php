@@ -23,6 +23,14 @@ print genAlert($data);
 print '<script>
 $("#receiveForm").trigger("reset");
 </script>';
+
+$data=array(
+    'complaint_id'=>mysqli_insert_id($systemDb['db']),
+    'step_id'=>1,
+    'date_step'=>sQ(date('Y-m-d')),
+);
+$result=sInsertTb($systemDb,'complaint_timeline',$data);
+
 }else{
     
     $data['icon']='fa fa-save';
