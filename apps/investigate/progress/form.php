@@ -6,12 +6,13 @@
 </div>
 <div class="card"><div class="card-body">
 <?php
+$investigate_id=$hGET['id'];
     $step=array(
         
     );
     $data=array(
         'id'=>'modal_resive',
-        'label'=>'<i class="fa fa-check"></i> รับเรื่องร้องเรียน',
+        'label'=>'<i class="fa fa-check"></i> รับเรื่อง สอบสวน',
         'color'=>'btn-success btn-lg btn-block',
         'onlyClickClose'=>true,
         //'onClick'=>'gen_index()',
@@ -21,15 +22,19 @@
 
 </div>
 </div>
-<div class="card"><div class="card-body">
-<?php
-    $data_progress=array(
-        'id'=>'detail_idiom',
-        'src'=>site_url('ajax/idiom/progress/detail/id/'.$row['id']),
-        'onlyClickClose'=>true,    
-    );
-    print '<a '.gen_modal_link($data_progress).' class="btn btn-primary btn-lg btn-block" ><i class="fa fa-edit"></i> แต่งตั้งกรรมการสืบ</a>';
-?>
 
+<div id="show_step">
 </div>
-</div>
+
+<?php
+$systemFoot.='
+<script>
+    $(function(){
+        load_step();
+    });
+
+    function load_step(){
+        $("#show_step").load("'.site_url('ajax/investigate/progress/show_step/id/'.$investigate_id).'");
+    }
+</script>
+';

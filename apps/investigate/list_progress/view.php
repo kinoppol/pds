@@ -12,13 +12,13 @@ load_fun('form');
 print "<p id='investigate_table'>โปรดรอสักครู่..</p>";
 $data=array(
     'id'=>'progress_investigate',
-    'title'=>'การดำเนินสำนวน',
+    'title'=>'การดำเนินสำนวน สอบสวน',
     'content'=>'<p id="progress_content">โปรดรอสักครู่..</p>'                
 );
 print gen_modal($data);
 
 $data=array(
-    'id'=>'detail_idiom',
+    'id'=>'detail_investigate',
     'title'=>'รายละเอียดการดำเนินการ',
     'content'=>'<p id="progress_content">โปรดรอสักครู่..</p>'                
 );
@@ -32,11 +32,11 @@ print gen_modal($data);
 </div>
 <script>
 $(function(){
-    load_table_idiom();
+    load_table_investigate();
 });
-    function load_table_idiom(){
-        $('#idiom_table').load('<?php
-            print site_url('ajax/idiom/list/table');
+    function load_table_investigate(){
+        $('#investigate_table').load('<?php
+            print site_url('ajax/investigate/list_progress/table');
             ?>');
     }
 </script>
