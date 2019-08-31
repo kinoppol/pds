@@ -36,7 +36,9 @@ function datethaifull($data)
 }
     function chk_step($investigate_id,$step_id){
         global $systemDb;
-        $chk_step=sSelectTb($systemDb,'investigate_timeline','count(*) as c','investigate_id='.sQ($investigate_id).' AND step_id ='.sQ($step_id));
+        $chk_step=sSelectTb($systemDb,'investigate_timeline',' count(*) as c','investigate_id='.sQ($investigate_id).' AND step_id ='.sQ($step_id));
+        // $sql="SELECT count(*) as c from investigate_timeline where investigate_id=".sQ($investigate_id)." and step_id=".sQ($step_id)."";
+        // print $sql;
         $chk_step=$chk_step[0];
         if($chk_step['c']==1){
             return true;
