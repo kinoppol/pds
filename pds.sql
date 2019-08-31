@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2019 at 05:17 AM
+-- Generation Time: Aug 31, 2019 at 05:49 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -141,7 +141,7 @@ CREATE TABLE `investigate` (
 INSERT INTO `investigate` (`id`, `complaint_id`, `investigate_code`, `subject`, `investigator`, `investigate_type`, `result`, `appeal`, `undecided_case_code`, `decided_case_code`, `owner_id`) VALUES
 (1, 1, '1', 'xxx', '1', 'light_punishment', NULL, 'N', NULL, NULL, 0),
 (2, 1, '1', 'xxx', '1', 'light_punishment', NULL, 'N', NULL, NULL, 1),
-(3, 12, NULL, 'การสอบสวน : อยากกินไก่ทอด', '', 'unfounded', NULL, 'N', NULL, NULL, 2),
+(3, 12, NULL, 'การสอบสวน : อยากกินไก่ทอด', '', 'unfounded', NULL, 'N', NULL, NULL, 3),
 (4, 13, NULL, 'การสอบสวน : หนังสือเรียน', '', 'light_punishment', NULL, 'N', NULL, NULL, 2);
 
 -- --------------------------------------------------------
@@ -155,7 +155,8 @@ CREATE TABLE `investigate_timeline` (
   `investigate_id` int(11) DEFAULT NULL COMMENT 'รหัสการสอบสวน',
   `step_id` int(11) DEFAULT NULL COMMENT 'รหัสขั้นตอน',
   `date_step` date DEFAULT NULL COMMENT 'วันที่เข้าสู่ขั้นตอน',
-  `time_limit` int(11) DEFAULT NULL COMMENT 'กำหนดระยะเวลา (วัน)'
+  `time_limit` int(11) DEFAULT NULL COMMENT 'กำหนดระยะเวลา (วัน)',
+  `timeline_detail` text NOT NULL COMMENT 'รายละเอียด'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ขั้นตอนการสืบสวน' ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
@@ -273,7 +274,8 @@ CREATE TABLE `userdata` (
 INSERT INTO `userdata` (`id`, `username`, `password`, `personal_id`, `active`, `user_type`, `last_login`) VALUES
 (1, 'admin', '25d55ad283aa400af464c76d713c07ad', 1, 'Y', 'admin', '2019-08-23 17:39:55'),
 (2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-31 10:15:27'),
-(3, 'pds01', '25d55ad283aa400af464c76d713c07ad', 3, 'Y', 'lawyer', '2019-08-31 10:14:17');
+(3, 'pds01', '25d55ad283aa400af464c76d713c07ad', 3, 'Y', 'lawyer', '2019-08-31 10:20:39'),
+(4, 'advisor01', '25d55ad283aa400af464c76d713c07ad', 1, 'Y', 'advisor', '2019-08-31 10:27:24');
 
 -- --------------------------------------------------------
 
@@ -420,7 +422,7 @@ ALTER TABLE `step_data`
 -- AUTO_INCREMENT for table `userdata`
 --
 ALTER TABLE `userdata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้ใช้', AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้ใช้', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `witness`
