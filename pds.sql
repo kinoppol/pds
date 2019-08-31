@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2019 at 06:48 PM
+-- Generation Time: Aug 31, 2019 at 05:17 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -36,28 +36,29 @@ CREATE TABLE `complaint` (
   `subject` varchar(200) NOT NULL COMMENT 'ชื่อเรื่องร้องเรียน',
   `complainant` varchar(1000) NOT NULL COMMENT 'ผู้ถูกร้องเรียน',
   `source_id` int(11) NOT NULL COMMENT 'รหัสแหล่งที่มาของเรื่องร้องเรียน',
-  `owner_id` int(11) UNSIGNED NOT NULL COMMENT 'รหัสเจ้าของสำนวน'
+  `owner_id` int(11) UNSIGNED NOT NULL COMMENT 'รหัสเจ้าของสำนวน',
+  `result` enum('unfounded','light_punishment','punishment') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `complaint`
 --
 
-INSERT INTO `complaint` (`id`, `receive_code`, `level_confidential`, `receive_date`, `subject`, `complainant`, `source_id`, `owner_id`) VALUES
-(1, '1', 'ลับมาก', '0000-00-00', 'sadsfdg', '', 1, 1),
-(2, '2', 'ลับที่สุด', '0000-00-00', 'lKJHKGJFHG', '', 1, 1),
-(3, '3', 'ลับมาก', '0000-00-00', 'KLJKHGJFHGD', '', 1, 1),
-(4, '', 'ลับ', '0000-00-00', '', '', 1, 1),
-(5, '', 'ลับ', '0000-00-00', '', '', 1, 1),
-(6, '', 'ลับ', '0000-00-00', '', '', 1, 1),
-(7, '', 'ลับ', '0000-00-00', '', '', 1, 1),
-(8, '111', 'ลับมาก', '0000-00-00', 'asdfghjkl', '', 3, 1),
-(9, '1119', 'ลับ', '0000-00-00', 'knlkm bjnj', '', 1, 1),
-(10, '9', 'ลับ', '0000-00-00', 'jhkjnlm;,\'.', '', 1, 1),
-(11, '123', 'ลับ', '0000-00-00', 'qwertyuiop[', '', 1, 1),
-(12, '123', 'ลับที่สุด', '0000-00-00', 'อยากกินไก่ทอด', '', 1, 3),
-(13, '456', 'ลับที่สุด', '0000-00-00', 'หนังสือเรียน', 'สมชาย สบายดี', 2, 2),
-(14, '123', 'ลับ', '2019-08-25', 'asdfghjkl;', '123er', 1, 2);
+INSERT INTO `complaint` (`id`, `receive_code`, `level_confidential`, `receive_date`, `subject`, `complainant`, `source_id`, `owner_id`, `result`) VALUES
+(1, '1', 'ลับมาก', '0000-00-00', 'sadsfdg', '', 1, 1, NULL),
+(2, '2', 'ลับที่สุด', '0000-00-00', 'lKJHKGJFHG', '', 1, 1, NULL),
+(3, '3', 'ลับมาก', '0000-00-00', 'KLJKHGJFHGD', '', 1, 1, NULL),
+(4, '', 'ลับ', '0000-00-00', '', '', 1, 1, NULL),
+(5, '', 'ลับ', '0000-00-00', '', '', 1, 1, NULL),
+(6, '', 'ลับ', '0000-00-00', '', '', 1, 1, NULL),
+(7, '', 'ลับ', '0000-00-00', '', '', 1, 1, NULL),
+(8, '111', 'ลับมาก', '0000-00-00', 'asdfghjkl', '', 3, 1, NULL),
+(9, '1119', 'ลับ', '0000-00-00', 'knlkm bjnj', '', 1, 1, NULL),
+(10, '9', 'ลับ', '0000-00-00', 'jhkjnlm;,\'.', '', 1, 1, NULL),
+(11, '123', 'ลับ', '0000-00-00', 'qwertyuiop[', '', 1, 1, NULL),
+(12, '123', 'ลับที่สุด', '0000-00-00', 'อยากกินไก่ทอด', '', 1, 3, 'unfounded'),
+(13, '456', 'ลับที่สุด', '0000-00-00', 'หนังสือเรียน', 'สมชาย สบายดี', 2, 3, 'light_punishment'),
+(14, '123', 'ลับ', '2019-08-25', 'asdfghjkl;', '123er', 1, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -71,8 +72,24 @@ CREATE TABLE `complaint_timeline` (
   `step_id` int(11) DEFAULT NULL COMMENT 'รหัสขั้นตอน',
   `date_step` date DEFAULT NULL COMMENT 'วันที่เข้าสู่ขั้นตอน',
   `time_limit` date DEFAULT NULL COMMENT 'กำหนดเวลา(วัน)',
-  `timeline_detail` int(11) NOT NULL COMMENT 'รายละเอียด'
+  `timeline_detail` text NOT NULL COMMENT 'รายละเอียด'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ขั้นตอนการรับเรื่องร้องเรียนและสืบพยาน';
+
+--
+-- Dumping data for table `complaint_timeline`
+--
+
+INSERT INTO `complaint_timeline` (`id`, `complaint_id`, `step_id`, `date_step`, `time_limit`, `timeline_detail`) VALUES
+(1, 12, 2, '2019-08-31', NULL, '{\"step_comment\":\"\"}'),
+(2, 12, 3, '2019-08-31', NULL, '{\"step_comment\":\"\"}'),
+(3, 12, 4, '2019-08-31', NULL, '{\"step_comment\":\"\"}'),
+(4, 12, 5, '2019-08-31', NULL, '{\"step_comment\":\"\"}'),
+(5, 12, 6, '2019-08-31', NULL, '{\"step_comment\":\"\"}'),
+(6, 13, 2, '2019-08-31', NULL, '{\"step_comment\":\"\"}'),
+(7, 13, 3, '2019-08-31', NULL, '{\"step_comment\":\"\"}'),
+(8, 13, 4, '2019-08-31', NULL, '{\"step_comment\":\"\"}'),
+(9, 13, 5, '2019-08-31', NULL, '{\"step_comment\":\"\"}'),
+(10, 13, 6, '2019-08-31', NULL, '{\"step_comment\":\"\"}');
 
 -- --------------------------------------------------------
 
@@ -123,7 +140,9 @@ CREATE TABLE `investigate` (
 
 INSERT INTO `investigate` (`id`, `complaint_id`, `investigate_code`, `subject`, `investigator`, `investigate_type`, `result`, `appeal`, `undecided_case_code`, `decided_case_code`, `owner_id`) VALUES
 (1, 1, '1', 'xxx', '1', 'light_punishment', NULL, 'N', NULL, NULL, 0),
-(2, 1, '1', 'xxx', '1', 'light_punishment', NULL, 'N', NULL, NULL, 1);
+(2, 1, '1', 'xxx', '1', 'light_punishment', NULL, 'N', NULL, NULL, 1),
+(3, 12, NULL, 'การสอบสวน : อยากกินไก่ทอด', '', 'unfounded', NULL, 'N', NULL, NULL, 2),
+(4, 13, NULL, 'การสอบสวน : หนังสือเรียน', '', 'light_punishment', NULL, 'N', NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -253,8 +272,8 @@ CREATE TABLE `userdata` (
 
 INSERT INTO `userdata` (`id`, `username`, `password`, `personal_id`, `active`, `user_type`, `last_login`) VALUES
 (1, 'admin', '25d55ad283aa400af464c76d713c07ad', 1, 'Y', 'admin', '2019-08-23 17:39:55'),
-(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-30 23:45:41'),
-(3, 'pds01', '25d55ad283aa400af464c76d713c07ad', 3, 'Y', 'lawyer', '2019-08-30 23:45:53');
+(2, 'staff', '25d55ad283aa400af464c76d713c07ad', 2, 'Y', 'staff', '2019-08-31 10:15:27'),
+(3, 'pds01', '25d55ad283aa400af464c76d713c07ad', 3, 'Y', 'lawyer', '2019-08-31 10:14:17');
 
 -- --------------------------------------------------------
 
@@ -359,7 +378,7 @@ ALTER TABLE `complaint`
 -- AUTO_INCREMENT for table `complaint_timeline`
 --
 ALTER TABLE `complaint_timeline`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสความคืบหน้า';
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสความคืบหน้า', AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `disciplinary_action`
@@ -371,7 +390,7 @@ ALTER TABLE `disciplinary_action`
 -- AUTO_INCREMENT for table `investigate`
 --
 ALTER TABLE `investigate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสการสอบสวน', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสการสอบสวน', AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `investigate_timeline`
@@ -395,7 +414,7 @@ ALTER TABLE `source`
 -- AUTO_INCREMENT for table `step_data`
 --
 ALTER TABLE `step_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสขั้นตอนดำเนินการ', AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสขั้นตอนดำเนินการ', AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `userdata`
