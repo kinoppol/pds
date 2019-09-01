@@ -120,7 +120,7 @@ $theme_URL=site_url("system/template/admin4b",true);
             <div class="content-header">
                 <nav class="navbar navbar-expand navbar-light bg-white">
                     <div class="navbar-brand">
-                        <button type="button" class="btn btn-sidebar" data-toggle="sidebar"><i class="fa fa-bars"></i></button> <span class="pr-2">Admin 4B</span> <a href="https://github.com/logiqsystem/admin4b" class="text-dark decoration-none" data-toggle="tooltip" data-placement="right" title="Fork me on GitHub"><i class="fa fa-github"></i></a></div>
+                        <button type="button" class="btn btn-sidebar" data-toggle="sidebar"><i class="fa fa-bars"></i></button> <span class="pr-2"><?php print $systemTitle; ?></span></div>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="badge badge-pill badge-primary">3</span> <i class="fa fa-bell-o"></i></a>
                             <div class="dropdown-menu dropdown-menu-right"><a href="<?php print $theme_URL?>/src/docs/pages/content/notification.html" class="dropdown-item"><small class="dropdown-item-title">Lorem ipsum (today)</small><br><div>Lorem ipsum dolor sit amet...</div></a>
