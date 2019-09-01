@@ -1,6 +1,7 @@
 <?php
 load_fun('form');
-$investigate_data=sSelectTb($systemDb,'investigate','*','complaint_id='.$hGET['id']);
+$investigate_data=sSelectTb($systemDb,'investigate','*','id='.$hGET['id']);
+//print_r($investigate_data);
 $investigate_data=$investigate_data[0];
 $inputDetail = array(
     'investigate_id' => array(
@@ -51,7 +52,7 @@ $onSubmit .= '
 $("#modal_resive").modal("hide");
 ';
 $inputForm = genInput($inputDetail, 4, 12);
-$saveURL=site_url('ajax/investigate/receive/save');
+$saveURL=site_url('ajax/investigate/edit/save');
 print genForm(array(
 'id' => 'editForm',
 'action' => $saveURL,

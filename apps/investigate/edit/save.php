@@ -23,7 +23,8 @@ if($result){
     $data['text']='&nbsp;บันทึกข้อมูลเรียบร้อยแล้ว';
 print genAlert($data);
 print '<script>
-$("#receiveForm").trigger("reset");
+$("#edit_investigate").modal("hide");
+load_table_investigate();
 </script>';
 }else{
     

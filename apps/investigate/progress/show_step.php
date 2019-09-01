@@ -26,7 +26,7 @@ $chk_complete=chk_step($complaint_id,14);
 if($chk_complete){
     
 $data_progress=array(
-    'id'=>'detail_idiom',
+    'id'=>'detail_investigate',
     'src'=>site_url('ajax/investigate/progress/summary/id/'.$investigate_id),
     'onlyClickClose'=>true,    
 );
