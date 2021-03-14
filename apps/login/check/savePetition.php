@@ -1,3 +1,14 @@
+<?php
+$data=array(
+  'email'=>sQ($_POST['email']),
+  'name'=>sQ($_POST['name']),
+  'phone'=>sQ($_POST['phone']),
+  'subject'=>sQ($_POST['subject']),
+  'detail'=>sQ($_POST['detail']),
+  'petition_time'=>sQ(date('Y-m-d H:i:s'))
+);
+  $result=sInsertTb($systemDb,'petition',$data);
+?>
 <style>
         .app-sidebar .sidebar-header {
   background-image: url("<?php print $theme_URL?>/src/docs/assets/img/sidebar-header.svg");
