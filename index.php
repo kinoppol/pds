@@ -92,7 +92,7 @@ if(!isset($_COOKIE['start_page'])&&($template!="ajax"||!$_SESSION['siteConfig'][
         }else if(last_user('id')){
             redirect(site_url("authen/login/form/lockscreen/"),true);
         }else{
-      if($template!="public")redirect(site_url("authen/login/form/regular/"),true);
+      if($template!="public")redirect(site_url("authen/login/form/petition/"),true);
     }
       
     }else{
