@@ -29,4 +29,7 @@
 <h1>ร้องเรียน/ร้องทุกข์</h1>
 <span>ระบบได้บันทึกร้องร้องเรียน/ร้องทุกข์เรียบร้อยแล้ว</span>
 <img src="images/right.png"></div>
+<div class="card-footer"><a href="<?php 
+print site_url('authen/login/form/regular'); ?>">เจ้าหน้าที่เข้าสู่ระบบ</a></div></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script><script src="/dist/admin4b.min.js"></script><script src="/docs/assets/js/docs.js"></script>
+</body>
 </body>
