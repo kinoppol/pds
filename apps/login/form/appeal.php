@@ -26,10 +26,10 @@
 }
     </style>
 </head><body><div class="page-sign sign-in"><div class="container-sign"><div class="card"><div class="card-header">
-<h1>ร้องทุกข์</h1>
+<h1>ร้องเรียน</h1>
 <span>กรุณาป้อนข้อมูล</span></div>
 <form action="<?php print site_url('authen/login/check/savePetition'); ?>" method="post">
-<input type="hidden" name="petition_type" value="petition">
+<input type="hidden" name="petition_type" value="appeal">
 <div class="card-body"><div class="form-group"><label>E-mail</label> 
 <input type="email" name="email" class="form-control" required autocomplete="off" placeholder="โปรดระบุอีเมล"></div>
 <div class="form-group"><label class="d-flex">

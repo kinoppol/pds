@@ -5,6 +5,7 @@ $data=array(
   'phone'=>sQ($_POST['phone']),
   'subject'=>sQ($_POST['subject']),
   'detail'=>sQ($_POST['detail']),
+  'petition_type'=>sQ($_POST['petition_type']),
   'petition_time'=>sQ(date('Y-m-d H:i:s'))
 );
   $result=sInsertTb($systemDb,'petition',$data);
