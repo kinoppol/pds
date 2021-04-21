@@ -26,7 +26,7 @@
 }
     </style>
 </head><body><div class="page-sign sign-in"><div class="container-sign"><div class="card"><div class="card-header">
-<h1>ร้องทุกข์</h1>
+<h1>ร้องทุกข์ร้องเรียน</h1>
 <span>กรุณาป้อนข้อมูล</span></div>
 <form action="<?php print site_url('authen/login/check/savePetition'); ?>" method="post">
 <input type="hidden" name="petition_type" value="petition">
