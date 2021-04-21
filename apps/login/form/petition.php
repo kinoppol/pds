@@ -38,7 +38,7 @@
 <div class="form-group"><label class="d-flex">
 <div>ชื่อ-สกุล</div></label>
 <input type="text" name="name" class="form-control" required placeholder="โปรดระบุชื่อของท่าน"></div>
-<div class="form-group"><label>เรื่องร้องเรียน</label> 
+<div class="form-group"><label>เรื่องร้องทุกข์</label> 
 <input type="text" name="subject" class="form-control" required autocomplete="off" placeholder="โปรดระบุชื่อเรื่องที่ร้องเรียน"></div>
 
 <div class="form-group"><label>ข้อเท็จจริง</label> </div>
